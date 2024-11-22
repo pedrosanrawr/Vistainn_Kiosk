@@ -132,6 +132,7 @@
     <Compile Include="ReviewFolder\ReviewForm.Designer.cs">
       <DependentUpon>ReviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SelectRoomFolder\Rooms.cs" />
     <Compile Include="SelectRoomFolder\SelectRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
