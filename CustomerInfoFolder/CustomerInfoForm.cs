@@ -42,32 +42,72 @@ namespace Vistainn_Kiosk
             con.Open();
             MySqlTransaction trans = con.BeginTransaction();
 
-            string query1 = "INSERT INTO customer(FullName, PhoneNo, Email) VALUES (@FullName, @PhoneNo, @Email)";
-            MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
-            cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
-            cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
-            cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
-            cmd1.ExecuteNonQuery();
+            try
+            {
+                if (string.IsNullOrEmpty(CustomerData.CustomerId))
+                {
+                    string query1 = "INSERT INTO customer(FullName, PhoneNo, Email) VALUES (@FullName, @PhoneNo, @Email)";
+                    MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
+                    cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
+                    cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
+                    cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
+                    cmd1.ExecuteNonQuery();
 
-            string query2 = "INSERT INTO booking (check_in, check_out) VALUES (@CheckIn, @CheckOut)";
-            MySqlCommand cmd2 = new MySqlCommand(query2, con, trans);
-            cmd2.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
-            cmd2.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
-            cmd2.ExecuteNonQuery();
+                    string getCustomerIdQuery = "SELECT LAST_INSERT_ID()";
+                    MySqlCommand getCustomerIdCmd = new MySqlCommand(getCustomerIdQuery, con, trans);
+                    CustomerData.CustomerId = getCustomerIdCmd.ExecuteScalar().ToString();
 
-            trans.Commit();
+                    string query2 = "INSERT INTO booking (FullName, check_in, check_out) VALUES (@FullName, @CheckIn, @CheckOut)";
+                    MySqlCommand cmd2 = new MySqlCommand(query2, con, trans);
+                    cmd2.Parameters.AddWithValue("@FullName", CustomerData.FullName);
+                    cmd2.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
+                    cmd2.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
+                    cmd2.ExecuteNonQuery();
+                }
+                else
+                {
+                    string query1 = "UPDATE customer SET FullName = @FullName, PhoneNo = @PhoneNo, Email = @Email WHERE CustomerId = @CustomerId";
+                    MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
+                    cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
+                    cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
+                    cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
+                    cmd1.Parameters.AddWithValue("@CustomerId", CustomerData.CustomerId);
+                    cmd1.ExecuteNonQuery();
 
-            parentPage.loadForm(new SelectRoomForm(parentPage));
+                    string query2 = "UPDATE booking SET check_in = @CheckIn, check_out = @CheckOut WHERE FullName = @FullName";
+                    MySqlCommand cmd2 = new MySqlCommand(query2, con, trans);
+                    cmd2.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
+                    cmd2.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
+                    cmd2.Parameters.AddWithValue("@FullName", CustomerData.FullName);
+                    cmd2.ExecuteNonQuery();
+                }
+
+                trans.Commit();
+
+                parentPage.loadForm(new SelectRoomForm(parentPage));
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
-    }
-    
-    //static class - customerData
-    public static class CustomerData
-    {
-        public static string FullName { get; set; }
-        public static string PhoneNo { get; set; }
-        public static string Email { get; set; }
-        public static DateTime CheckIn { get; set; }
-        public static DateTime CheckOut { get; set; }
+
     }
 }
+
+//static class - customerData
+public static class CustomerData
+{
+    public static string CustomerId { get; set; } 
+    public static string FullName { get; set; }
+    public static string PhoneNo { get; set; }
+    public static string Email { get; set; }
+    public static DateTime CheckIn { get; set; }
+    public static DateTime CheckOut { get; set; }
+}
+

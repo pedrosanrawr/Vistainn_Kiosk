@@ -45,7 +45,7 @@ namespace Vistainn_Kiosk
         //load room list - method
         private void loadRoomList()
         {
-            string query = "SELECT RoomType, Rate, picture FROM room";
+            string query = "SELECT RoomType, Rate, picture FROM room GROUP BY RoomType";
             MySqlConnection conn = new MySqlConnection(database.connectionString);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
