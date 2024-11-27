@@ -1,4 +1,8 @@
-﻿namespace Vistainn_Kiosk
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Vistainn_Kiosk
 {
     partial class startPage
     {
@@ -34,6 +38,8 @@
             this.booknowButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Shapes1 = new Guna.UI2.WinForms.Guna2Shapes();
             this.label3 = new System.Windows.Forms.Label();
+            this.logoPictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -43,7 +49,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label1.Location = new System.Drawing.Point(386, 119);
+            this.label1.Location = new System.Drawing.Point(439, 119);
             this.label1.MaximumSize = new System.Drawing.Size(350, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 77);
@@ -58,7 +64,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label2.Location = new System.Drawing.Point(599, 187);
+            this.label2.Location = new System.Drawing.Point(652, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 46);
             this.label2.TabIndex = 1;
@@ -98,7 +104,7 @@
             this.guna2Shapes1.LineEndCap = System.Drawing.Drawing2D.LineCap.Round;
             this.guna2Shapes1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
             this.guna2Shapes1.LineStartCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.guna2Shapes1.Location = new System.Drawing.Point(369, 106);
+            this.guna2Shapes1.Location = new System.Drawing.Point(422, 106);
             this.guna2Shapes1.Name = "guna2Shapes1";
             this.guna2Shapes1.PolygonSkip = 1;
             this.guna2Shapes1.Rotate = 0F;
@@ -123,6 +129,19 @@
             this.label3.Text = "\"Your Gateway to Relaxation and Comfort\"";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // logoPictureBox
+            // 
+            this.logoPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.logoPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+            this.logoPictureBox.ImageRotate = 0F;
+            this.logoPictureBox.Location = new System.Drawing.Point(316, 106);
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.logoPictureBox.Size = new System.Drawing.Size(100, 100);
+            this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoPictureBox.TabIndex = 9;
+            this.logoPictureBox.TabStop = false;
+            // 
             // startPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,18 +150,33 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1094, 648);
+            this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.booknowButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2Shapes1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Resize += startPage_Resize;
             this.MinimumSize = new System.Drawing.Size(1110, 687);
             this.Name = "startPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN KIOSK";
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void startPage_Resize(object sender, EventArgs e)
+        {
+            int Width = this.ClientSize.Width / 5; 
+            int Height = 50; 
+
+            booknowButton.Width = Width;
+            booknowButton.Height = Height;
+            booknowButton.Left = (this.ClientSize.Width - booknowButton.Width) / 4; 
+            booknowButton.Top = this.ClientSize.Height - booknowButton.Height - 25; 
+            booknowButton.Location = new System.Drawing.Point(850, 600);
         }
 
         #endregion
@@ -152,6 +186,7 @@
         private Guna.UI2.WinForms.Guna2Button booknowButton;
         private Guna.UI2.WinForms.Guna2Shapes guna2Shapes1;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2PictureBox logoPictureBox;
     }
 }
 
