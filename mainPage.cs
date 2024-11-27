@@ -15,7 +15,7 @@ namespace Vistainn_Kiosk
         public mainPage()
         {
             InitializeComponent();
-            loadForm(new CustomerInfoForm(this));
+            loadForm(new SelectRoomForm(this));
         }
 
         //loadForm
@@ -37,6 +37,6 @@ namespace Vistainn_Kiosk
     // database class
     class Database
     {
-        public string connectionString = "Server=localhost;Database=vistainn; Uid=root; Pwd=;";
+        public string connectionString = "Server=localhost;Database=Vistainn_; Uid=root; Pwd=;";
     }
 }

@@ -32,20 +32,13 @@ namespace Vistainn_Kiosk
         //next button - click
         private void nextButton_Click(object sender, EventArgs e)
         {
-            parentPage.loadForm(new ReviewForm(parentPage));
-        }
-
-        //back button - click
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            
             parentPage.loadForm(new CustomerInfoForm(parentPage));
         }
 
         //load room list - method
         private void loadRoomList()
         {
-            string query = "SELECT RoomType, Rate, picture FROM room GROUP BY RoomType";
+            string query = "SELECT RoomType, Rate, Picture FROM room GROUP BY RoomType";
             MySqlConnection conn = new MySqlConnection(database.connectionString);
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -54,7 +47,7 @@ namespace Vistainn_Kiosk
             {
                 string roomType = reader["RoomType"].ToString();
                 double rate = Convert.ToDouble(reader["Rate"]);
-                byte[] imageBytes = reader["picture"] as byte[];
+                byte[] imageBytes = reader["Picture"] as byte[];
 
                 rooms.createRoomDisplay(roomType, rate, imageBytes);
                 roomFlowLayoutPanel.Controls.Add(rooms.roomButton);

@@ -38,53 +38,50 @@ namespace Vistainn_Kiosk
             CustomerData.CheckIn = this.checkInDateTimePicker.Value;
             CustomerData.CheckOut = this.checkOutDateTimePicker.Value;
 
+            if (CustomerData.CheckIn < DateTime.Today)
+            {
+                MessageBox.Show("Check-in date cannot be in the past. Please select a valid date.");
+                return;
+            }
+
+            if (CustomerData.CheckOut <= CustomerData.CheckIn)
+            {
+                MessageBox.Show("Check-out date must be later than check-in date. Please select a valid date.");
+                return;
+            }
+
             MySqlConnection con = new MySqlConnection(database.connectionString);
             con.Open();
             MySqlTransaction trans = con.BeginTransaction();
 
             try
             {
-                if (string.IsNullOrEmpty(CustomerData.CustomerId))
+                if (string.IsNullOrEmpty(CustomerData.BookingId))
                 {
-                    string query1 = "INSERT INTO customer(FullName, PhoneNo, Email) VALUES (@FullName, @PhoneNo, @Email)";
+                    string query1 = "INSERT INTO booking(FullName, PhoneNo, Email) VALUES (@FullName, @PhoneNo, @Email)";
                     MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
                     cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
                     cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
                     cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
+                    cmd1.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
+                    cmd1.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
                     cmd1.ExecuteNonQuery();
-
-                    string getCustomerIdQuery = "SELECT LAST_INSERT_ID()";
-                    MySqlCommand getCustomerIdCmd = new MySqlCommand(getCustomerIdQuery, con, trans);
-                    CustomerData.CustomerId = getCustomerIdCmd.ExecuteScalar().ToString();
-
-                    string query2 = "INSERT INTO booking (FullName, check_in, check_out) VALUES (@FullName, @CheckIn, @CheckOut)";
-                    MySqlCommand cmd2 = new MySqlCommand(query2, con, trans);
-                    cmd2.Parameters.AddWithValue("@FullName", CustomerData.FullName);
-                    cmd2.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
-                    cmd2.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
-                    cmd2.ExecuteNonQuery();
                 }
                 else
                 {
-                    string query1 = "UPDATE customer SET FullName = @FullName, PhoneNo = @PhoneNo, Email = @Email WHERE CustomerId = @CustomerId";
+                    string query1 = "UPDATE booking SET FullName = @FullName, PhoneNo = @PhoneNo, Email = @Email WHERE BookingId = @BookingId";
                     MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
                     cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
                     cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
                     cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
-                    cmd1.Parameters.AddWithValue("@CustomerId", CustomerData.CustomerId);
-                    cmd1.ExecuteNonQuery();
-
-                    string query2 = "UPDATE booking SET check_in = @CheckIn, check_out = @CheckOut WHERE FullName = @FullName";
-                    MySqlCommand cmd2 = new MySqlCommand(query2, con, trans);
-                    cmd2.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
-                    cmd2.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
-                    cmd2.Parameters.AddWithValue("@FullName", CustomerData.FullName);
-                    cmd2.ExecuteNonQuery();
+                    cmd1.Parameters.AddWithValue("@BookingId", CustomerData.BookingId);
+                    cmd1.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
+                    cmd1.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
                 }
 
                 trans.Commit();
 
-                parentPage.loadForm(new SelectRoomForm(parentPage));
+                parentPage.loadForm(new ReviewForm(parentPage));
             }
             catch (Exception ex)
             {
@@ -97,13 +94,17 @@ namespace Vistainn_Kiosk
             }
         }
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            parentPage.loadForm(new SelectRoomForm(parentPage));
+        }
     }
 }
 
 //static class - customerData
 public static class CustomerData
 {
-    public static string CustomerId { get; set; } 
+    public static string BookingId { get; set; } 
     public static string FullName { get; set; }
     public static string PhoneNo { get; set; }
     public static string Email { get; set; }

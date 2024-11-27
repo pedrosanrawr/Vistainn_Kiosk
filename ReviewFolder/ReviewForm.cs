@@ -22,7 +22,7 @@ namespace Vistainn_Kiosk
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            parentPage.loadForm(new SelectRoomForm(parentPage));
+            parentPage.loadForm(new CustomerInfoForm(parentPage));
         }
     }
 }

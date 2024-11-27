@@ -33,10 +33,12 @@ namespace Vistainn_Kiosk
         private void InitializeComponent()
         {
             this.nextButton = new Guna.UI2.WinForms.Guna2Button();
-            this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.roomFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.paxNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // nextButton
@@ -60,27 +62,6 @@ namespace Vistainn_Kiosk
             this.nextButton.Text = "NEXT";
             this.nextButton.UseTransparentBackground = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderRadius = 20;
-            this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.backButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.backButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.backButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.backButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.backButton.Location = new System.Drawing.Point(62, 567);
-            this.backButton.Name = "backButton";
-            this.backButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.backButton.Size = new System.Drawing.Size(143, 45);
-            this.backButton.TabIndex = 18;
-            this.backButton.Text = "BACK";
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // guna2Panel2
             // 
@@ -110,10 +91,41 @@ namespace Vistainn_Kiosk
             // roomFlowLayoutPanel
             // 
             this.roomFlowLayoutPanel.AutoScroll = true;
-            this.roomFlowLayoutPanel.Location = new System.Drawing.Point(62, 97);
+            this.roomFlowLayoutPanel.Location = new System.Drawing.Point(62, 125);
             this.roomFlowLayoutPanel.Name = "roomFlowLayoutPanel";
-            this.roomFlowLayoutPanel.Size = new System.Drawing.Size(427, 442);
+            this.roomFlowLayoutPanel.Size = new System.Drawing.Size(427, 487);
             this.roomFlowLayoutPanel.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.label2.Location = new System.Drawing.Point(58, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "NO. OF GUESTS:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // paxNumericUpDown
+            // 
+            this.paxNumericUpDown.BackColor = System.Drawing.Color.Transparent;
+            this.paxNumericUpDown.BorderRadius = 12;
+            this.paxNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.paxNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paxNumericUpDown.Location = new System.Drawing.Point(181, 77);
+            this.paxNumericUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.paxNumericUpDown.Name = "paxNumericUpDown";
+            this.paxNumericUpDown.Size = new System.Drawing.Size(96, 29);
+            this.paxNumericUpDown.TabIndex = 23;
+            this.paxNumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
+            this.paxNumericUpDown.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             // 
             // SelectRoomForm
             // 
@@ -121,14 +133,16 @@ namespace Vistainn_Kiosk
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(1098, 652);
+            this.Controls.Add(this.paxNumericUpDown);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.roomFlowLayoutPanel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.backButton);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.guna2Panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SelectRoomForm";
             this.Text = "SelectRoomForm";
+            ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,9 +150,10 @@ namespace Vistainn_Kiosk
 
         #endregion
         private Guna.UI2.WinForms.Guna2Button nextButton;
-        private Guna.UI2.WinForms.Guna2Button backButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.FlowLayoutPanel roomFlowLayoutPanel;
+        private Label label2;
+        private Guna.UI2.WinForms.Guna2NumericUpDown paxNumericUpDown;
     }
 }
