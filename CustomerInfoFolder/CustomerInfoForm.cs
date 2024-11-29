@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vistainn_Kiosk;
+using System.Text.RegularExpressions;
+using System.Windows.Controls;
+using Vistainn_Kiosk.CustomerInfoFolder;
 
 namespace Vistainn_Kiosk
 {
@@ -16,6 +19,8 @@ namespace Vistainn_Kiosk
     {
         Database database = new Database();
         private mainPage parentPage;
+
+        public CustomerInfoForm() { }
 
         public CustomerInfoForm(mainPage parent)
         {
@@ -29,7 +34,6 @@ namespace Vistainn_Kiosk
             checkOutDateTimePicker.Value = CustomerData.CheckOut != DateTime.MinValue ? CustomerData.CheckOut : DateTime.Today.AddDays(1);
         }
 
-        //next button - click
         private void nextButton_Click(object sender, EventArgs e)
         {
             CustomerData.FullName = this.fullNameTextBox.Text;
@@ -38,17 +42,9 @@ namespace Vistainn_Kiosk
             CustomerData.CheckIn = this.checkInDateTimePicker.Value;
             CustomerData.CheckOut = this.checkOutDateTimePicker.Value;
 
-            if (CustomerData.CheckIn < DateTime.Today)
-            {
-                MessageBox.Show("Check-in date cannot be in the past. Please select a valid date.");
-                return;
-            }
-
-            if (CustomerData.CheckOut <= CustomerData.CheckIn)
-            {
-                MessageBox.Show("Check-out date must be later than check-in date. Please select a valid date.");
-                return;
-            }
+            if (!CustomerInfoFolder.Validation.ValidateDates(CustomerData.CheckIn, CustomerData.CheckOut)) return;
+            if (!CustomerInfoFolder.Validation.ValidateEmail(CustomerData.Email)) return;
+            if (!CustomerInfoFolder.Validation.ValidatePhoneNumber(CustomerData.PhoneNo)) return;
 
             MySqlConnection con = new MySqlConnection(database.connectionString);
             con.Open();
@@ -58,7 +54,7 @@ namespace Vistainn_Kiosk
             {
                 if (string.IsNullOrEmpty(CustomerData.BookingId))
                 {
-                    string query1 = "INSERT INTO booking(FullName, PhoneNo, Email) VALUES (@FullName, @PhoneNo, @Email)";
+                    string query1 = "INSERT INTO booking(FullName, PhoneNo, Email, CheckIn, CheckOut) VALUES (@FullName, @PhoneNo, @Email, @CheckIn, @CheckOut)";
                     MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
                     cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
                     cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
@@ -69,7 +65,7 @@ namespace Vistainn_Kiosk
                 }
                 else
                 {
-                    string query1 = "UPDATE booking SET FullName = @FullName, PhoneNo = @PhoneNo, Email = @Email WHERE BookingId = @BookingId";
+                    string query1 = "UPDATE booking SET FullName = @FullName, PhoneNo = @PhoneNo, Email = @Email, CheckIn = @CheckIn, CheckOut = @CheckOut WHERE BookingId = @BookingId";
                     MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
                     cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
                     cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
@@ -77,10 +73,10 @@ namespace Vistainn_Kiosk
                     cmd1.Parameters.AddWithValue("@BookingId", CustomerData.BookingId);
                     cmd1.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
                     cmd1.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
+                    cmd1.ExecuteNonQuery();
                 }
 
                 trans.Commit();
-
                 parentPage.loadForm(new ReviewForm(parentPage));
             }
             catch (Exception ex)

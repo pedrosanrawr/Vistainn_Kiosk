@@ -126,6 +126,7 @@
     <Compile Include="CustomerInfoFolder\CustomerInfoForm.Designer.cs">
       <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerInfoFolder\Validation.cs" />
     <Compile Include="ReviewFolder\ReviewForm.cs">
       <SubType>Form</SubType>
     </Compile>

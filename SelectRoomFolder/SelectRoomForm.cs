@@ -2,7 +2,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using Vistainn_Kiosk.SelectRoomFolder;
@@ -14,7 +13,7 @@ namespace Vistainn_Kiosk
         Database database = new Database();
         Rooms rooms = new Rooms();
 
-        List<Room> roomList = new List<Room>();
+        List<RoomData> roomList = new List<RoomData>();
 
         private mainPage parentPage;
 
@@ -34,7 +33,7 @@ namespace Vistainn_Kiosk
         //load room list - method
         private void loadRoomList()
         {
-            string query = "SELECT RoomType, Rate, Picture, Pax FROM room GROUP BY RoomType ORDER BY Pax";
+            string query = "SELECT * FROM room GROUP BY RoomType ORDER BY Pax";
 
             MySqlConnection conn = new MySqlConnection(database.connectionString);
             conn.Open();
@@ -47,13 +46,23 @@ namespace Vistainn_Kiosk
                 double rate = Convert.ToDouble(reader["Rate"]);
                 byte[] imageBytes = reader["Picture"] as byte[];
                 int pax = Convert.ToInt32(reader["Pax"]);
+                string bathroom = reader["Bathroom"].ToString();
+                string bedroom = reader["BedRoom"].ToString();
+                string kitchen = reader["Kitchen"].ToString();
+                string technology = reader["Technology"].ToString();
+                string general = reader["General"].ToString();
 
-                roomList.Add(new Room
+                roomList.Add(new RoomData
                 {
                     RoomType = roomType,
                     Rate = rate,
                     Image = imageBytes,
-                    Pax = pax
+                    Pax = pax,
+                    Bathroom = bathroom,
+                    Bedroom = bedroom,
+                    Kitchen = kitchen,
+                    Technology = technology,
+                    General = general
                 });
             }
 
@@ -62,16 +71,33 @@ namespace Vistainn_Kiosk
             foreach (var room in sortedRoomList)
             {
                 rooms.createRoomDisplay(room.RoomType, room.Rate, room.Image);
+                rooms.roomButton.Tag = room;
                 roomFlowLayoutPanel.Controls.Add(rooms.roomButton);
+                rooms.roomButton.Click += RoomButton_Click;
             }
         }
 
-        //pax numeric up dowm - event
+        /* dito gumawa ako ng roombutton click event which is connected sha sa roomButton element sa room class tas pag clinick toh
+           magloload ung data dun*/
+        private void RoomButton_Click(object sender, EventArgs e)
+        {
+            //kukuhain nito ung index ng button na clinick
+            var clickButton = (Guna2Button)sender;
+            //tapos eto, nireretrieve nia ung mga data sa roomDataClass
+            var clckRoom = (RoomData)clickButton.Tag;
+            /*tas maglagay u ng mga elements (like bathroomLabel ganon basta ung mga need na elements) 
+             * sa drag and drop tas populate mo dun ung data sa roomdata class like pede mong copy paste 
+             * nlng ung nilagay ko sa titleLabel eg.: bedRoomLabel.Text = clckRoom.Bedroom.ToUpper();*/
+            titleLabel.Text = clckRoom.RoomType.ToUpper();
+            bedroomLabel.Text = "Bedroom: " + clckRoom.Bedroom.ToUpper();    
+        }
+
+        //pax numeric up/down - event
         private void paxNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int selectedPax = (int)paxNumericUpDown.Value;
 
-            IEnumerable<Room> filteredRooms;
+            IEnumerable<RoomData> filteredRooms;
             if (selectedPax == 0)
             {
                 filteredRooms = roomList;
@@ -91,12 +117,17 @@ namespace Vistainn_Kiosk
         }
     }
 
-    //room class
-    public class Room
+    //roomData class
+    public class RoomData
     {
         public string RoomType { get; set; }
         public double Rate { get; set; }
         public byte[] Image { get; set; }
         public int Pax { get; set; }
+        public string Bathroom { get; set; }
+        public string Bedroom { get; set; }
+        public string Kitchen { get; set; }
+        public string Technology { get; set; }
+        public string General { get; set; }
     }
 }

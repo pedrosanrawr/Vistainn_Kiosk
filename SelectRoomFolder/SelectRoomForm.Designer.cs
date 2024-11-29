@@ -34,10 +34,13 @@ namespace Vistainn_Kiosk
         {
             this.nextButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.roomFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.paxNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.bedroomLabel = new System.Windows.Forms.Label();
+            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,12 +71,27 @@ namespace Vistainn_Kiosk
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
+            this.guna2Panel2.Controls.Add(this.bedroomLabel);
+            this.guna2Panel2.Controls.Add(this.titleLabel);
             this.guna2Panel2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel2.Location = new System.Drawing.Point(555, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(589, 653);
             this.guna2Panel2.TabIndex = 19;
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.titleLabel.Location = new System.Drawing.Point(38, 21);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(91, 41);
+            this.titleLabel.TabIndex = 24;
+            this.titleLabel.Text = "TITLE";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -128,6 +146,19 @@ namespace Vistainn_Kiosk
             this.paxNumericUpDown.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.paxNumericUpDown.ValueChanged += new System.EventHandler(this.paxNumericUpDown_ValueChanged);
             // 
+            // bedroomLabel
+            // 
+            this.bedroomLabel.AutoSize = true;
+            this.bedroomLabel.BackColor = System.Drawing.Color.Transparent;
+            this.bedroomLabel.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bedroomLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.bedroomLabel.Location = new System.Drawing.Point(38, 77);
+            this.bedroomLabel.Name = "bedroomLabel";
+            this.bedroomLabel.Size = new System.Drawing.Size(69, 33);
+            this.bedroomLabel.TabIndex = 25;
+            this.bedroomLabel.Text = "TITLE";
+            this.bedroomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SelectRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +174,8 @@ namespace Vistainn_Kiosk
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SelectRoomForm";
             this.Text = "SelectRoomForm";
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +189,7 @@ namespace Vistainn_Kiosk
         public System.Windows.Forms.FlowLayoutPanel roomFlowLayoutPanel;
         private Label label2;
         private Guna.UI2.WinForms.Guna2NumericUpDown paxNumericUpDown;
+        public Label titleLabel;
+        public Label bedroomLabel;
     }
 }

@@ -49,7 +49,7 @@ namespace Vistainn_Kiosk
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label1.Location = new System.Drawing.Point(439, 119);
+            this.label1.Location = new System.Drawing.Point(439, 74);
             this.label1.MaximumSize = new System.Drawing.Size(350, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(315, 77);
@@ -64,7 +64,7 @@ namespace Vistainn_Kiosk
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label2.Location = new System.Drawing.Point(652, 187);
+            this.label2.Location = new System.Drawing.Point(652, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 46);
             this.label2.TabIndex = 1;
@@ -86,7 +86,7 @@ namespace Vistainn_Kiosk
             this.booknowButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.booknowButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.booknowButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.booknowButton.Location = new System.Drawing.Point(457, 423);
+            this.booknowButton.Location = new System.Drawing.Point(457, 364);
             this.booknowButton.MaximumSize = new System.Drawing.Size(200, 70);
             this.booknowButton.Name = "booknowButton";
             this.booknowButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
@@ -104,7 +104,7 @@ namespace Vistainn_Kiosk
             this.guna2Shapes1.LineEndCap = System.Drawing.Drawing2D.LineCap.Round;
             this.guna2Shapes1.LineOrientation = System.Windows.Forms.Orientation.Vertical;
             this.guna2Shapes1.LineStartCap = System.Drawing.Drawing2D.LineCap.Round;
-            this.guna2Shapes1.Location = new System.Drawing.Point(422, 106);
+            this.guna2Shapes1.Location = new System.Drawing.Point(422, 61);
             this.guna2Shapes1.Name = "guna2Shapes1";
             this.guna2Shapes1.PolygonSkip = 1;
             this.guna2Shapes1.Rotate = 0F;
@@ -121,7 +121,7 @@ namespace Vistainn_Kiosk
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label3.Location = new System.Drawing.Point(344, 552);
+            this.label3.Location = new System.Drawing.Point(344, 597);
             this.label3.MaximumSize = new System.Drawing.Size(450, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(407, 22);
@@ -135,7 +135,7 @@ namespace Vistainn_Kiosk
             this.logoPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
             this.logoPictureBox.ImageRotate = 0F;
-            this.logoPictureBox.Location = new System.Drawing.Point(316, 106);
+            this.logoPictureBox.Location = new System.Drawing.Point(316, 61);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(100, 100);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,11 +156,14 @@ namespace Vistainn_Kiosk
             this.Controls.Add(this.guna2Shapes1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Resize += startPage_Resize;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MinimumSize = new System.Drawing.Size(1110, 687);
             this.Name = "startPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VISTAINN KIOSK";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.startPage_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,14 +172,22 @@ namespace Vistainn_Kiosk
 
         private void startPage_Resize(object sender, EventArgs e)
         {
-            int Width = this.ClientSize.Width / 5; 
-            int Height = 50; 
+            if (WindowState == FormWindowState.Maximized)
+            {
+                int Width = this.ClientSize.Width / 5;
+                int Height = 50;
 
-            booknowButton.Width = Width;
-            booknowButton.Height = Height;
-            booknowButton.Left = (this.ClientSize.Width - booknowButton.Width) / 4; 
-            booknowButton.Top = this.ClientSize.Height - booknowButton.Height - 25; 
-            booknowButton.Location = new System.Drawing.Point(850, 600);
+                booknowButton.Width = Width;
+                booknowButton.Height = Height;
+                booknowButton.Left = (this.ClientSize.Width - booknowButton.Width) / 4;
+                booknowButton.Top = this.ClientSize.Height - booknowButton.Height - 25;
+                booknowButton.Location = new System.Drawing.Point(850, 650);
+            }
+            else
+            {
+                booknowButton.Size = new System.Drawing.Size(180, 45);
+                booknowButton.Location = new System.Drawing.Point(457, 423);
+            }
         }
 
         #endregion

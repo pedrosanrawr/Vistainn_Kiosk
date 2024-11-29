@@ -85,9 +85,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.label2.Location = new System.Drawing.Point(417, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 17);
+            this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 15;
-            this.label2.Text = "FULL NAME";
+            this.label2.Text = "FULL NAME*";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fullNameTextBox
@@ -139,9 +139,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.label3.Location = new System.Drawing.Point(417, 228);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 17);
+            this.label3.Size = new System.Drawing.Size(114, 17);
             this.label3.TabIndex = 61;
-            this.label3.Text = "PHONE NUMBER";
+            this.label3.Text = "PHONE NUMBER*";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // emailTextBox
@@ -172,9 +172,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.label4.Location = new System.Drawing.Point(417, 297);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 17);
+            this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 63;
-            this.label4.Text = "EMAIL";
+            this.label4.Text = "EMAIL*";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -185,9 +185,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.label5.Location = new System.Drawing.Point(417, 367);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 17);
+            this.label5.Size = new System.Drawing.Size(77, 17);
             this.label5.TabIndex = 65;
-            this.label5.Text = "CHECK-IN";
+            this.label5.Text = "CHECK-IN*";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkInDateTimePicker
@@ -230,9 +230,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.label6.Location = new System.Drawing.Point(417, 445);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 17);
+            this.label6.Size = new System.Drawing.Size(88, 17);
             this.label6.TabIndex = 111;
-            this.label6.Text = "CHECK-OUT";
+            this.label6.Text = "CHECK-OUT*";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // backButton
