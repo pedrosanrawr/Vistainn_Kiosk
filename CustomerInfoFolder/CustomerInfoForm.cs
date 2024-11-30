@@ -77,7 +77,7 @@ namespace Vistainn_Kiosk
                 }
 
                 trans.Commit();
-                parentPage.loadForm(new ReviewForm(parentPage));
+                parentPage.loadForm(new InvoiceForm(parentPage));
             }
             catch (Exception ex)
             {

@@ -34,7 +34,7 @@ namespace Vistainn_Kiosk.SelectRoomFolder
                 Image = imageBytes != null ? Image.FromStream(new MemoryStream(imageBytes)) : null,
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Location = new Point(20, 20),
-                BorderRadius = 10
+                BorderRadius = 10,
             };
             roomButton.Controls.Add(pictureBox);
 

@@ -83,7 +83,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label2.Location = new System.Drawing.Point(417, 158);
+            this.label2.Location = new System.Drawing.Point(418, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 15;
@@ -103,7 +103,7 @@
             this.fullNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.fullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fullNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.fullNameTextBox.Location = new System.Drawing.Point(420, 178);
+            this.fullNameTextBox.Location = new System.Drawing.Point(418, 173);
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.PasswordChar = '\0';
             this.fullNameTextBox.PlaceholderText = "";
@@ -123,7 +123,7 @@
             this.phoneNoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.phoneNoTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.phoneNoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.phoneNoTextBox.Location = new System.Drawing.Point(420, 248);
+            this.phoneNoTextBox.Location = new System.Drawing.Point(418, 248);
             this.phoneNoTextBox.Name = "phoneNoTextBox";
             this.phoneNoTextBox.PasswordChar = '\0';
             this.phoneNoTextBox.PlaceholderText = "";
@@ -137,7 +137,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label3.Location = new System.Drawing.Point(417, 228);
+            this.label3.Location = new System.Drawing.Point(415, 228);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 17);
             this.label3.TabIndex = 61;
@@ -156,7 +156,7 @@
             this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.emailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.emailTextBox.Location = new System.Drawing.Point(420, 317);
+            this.emailTextBox.Location = new System.Drawing.Point(418, 323);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.PasswordChar = '\0';
             this.emailTextBox.PlaceholderText = "";
@@ -170,7 +170,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label4.Location = new System.Drawing.Point(417, 297);
+            this.label4.Location = new System.Drawing.Point(418, 303);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 17);
             this.label4.TabIndex = 63;
@@ -183,7 +183,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label5.Location = new System.Drawing.Point(417, 367);
+            this.label5.Location = new System.Drawing.Point(418, 378);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 17);
             this.label5.TabIndex = 65;
@@ -198,7 +198,7 @@
             this.checkInDateTimePicker.FillColor = System.Drawing.Color.DimGray;
             this.checkInDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.checkInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.checkInDateTimePicker.Location = new System.Drawing.Point(420, 387);
+            this.checkInDateTimePicker.Location = new System.Drawing.Point(418, 398);
             this.checkInDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.checkInDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.checkInDateTimePicker.Name = "checkInDateTimePicker";
@@ -214,7 +214,7 @@
             this.checkOutDateTimePicker.FillColor = System.Drawing.Color.DimGray;
             this.checkOutDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.checkOutDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.checkOutDateTimePicker.Location = new System.Drawing.Point(420, 465);
+            this.checkOutDateTimePicker.Location = new System.Drawing.Point(418, 477);
             this.checkOutDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.checkOutDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.checkOutDateTimePicker.Name = "checkOutDateTimePicker";
@@ -228,7 +228,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label6.Location = new System.Drawing.Point(417, 445);
+            this.label6.Location = new System.Drawing.Point(418, 457);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 17);
             this.label6.TabIndex = 111;
