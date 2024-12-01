@@ -126,9 +126,8 @@ namespace Vistainn_Kiosk
             this.rateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.rateLabel.Location = new System.Drawing.Point(38, 345);
             this.rateLabel.Name = "rateLabel";
-            this.rateLabel.Size = new System.Drawing.Size(62, 28);
+            this.rateLabel.Size = new System.Drawing.Size(0, 28);
             this.rateLabel.TabIndex = 43;
-            this.rateLabel.Text = "TITLE";
             this.rateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -219,9 +218,8 @@ namespace Vistainn_Kiosk
             this.generalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.generalLabel.Location = new System.Drawing.Point(38, 301);
             this.generalLabel.Name = "generalLabel";
-            this.generalLabel.Size = new System.Drawing.Size(65, 30);
+            this.generalLabel.Size = new System.Drawing.Size(0, 30);
             this.generalLabel.TabIndex = 30;
-            this.generalLabel.Text = "TITLE";
             this.generalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // kitchenLabel
@@ -232,9 +230,8 @@ namespace Vistainn_Kiosk
             this.kitchenLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.kitchenLabel.Location = new System.Drawing.Point(38, 257);
             this.kitchenLabel.Name = "kitchenLabel";
-            this.kitchenLabel.Size = new System.Drawing.Size(65, 30);
+            this.kitchenLabel.Size = new System.Drawing.Size(0, 30);
             this.kitchenLabel.TabIndex = 29;
-            this.kitchenLabel.Text = "TITLE";
             this.kitchenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // technologyLabel
@@ -245,9 +242,8 @@ namespace Vistainn_Kiosk
             this.technologyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.technologyLabel.Location = new System.Drawing.Point(38, 213);
             this.technologyLabel.Name = "technologyLabel";
-            this.technologyLabel.Size = new System.Drawing.Size(65, 30);
+            this.technologyLabel.Size = new System.Drawing.Size(0, 30);
             this.technologyLabel.TabIndex = 28;
-            this.technologyLabel.Text = "TITLE";
             this.technologyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bathroomLabel
@@ -258,9 +254,8 @@ namespace Vistainn_Kiosk
             this.bathroomLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.bathroomLabel.Location = new System.Drawing.Point(38, 169);
             this.bathroomLabel.Name = "bathroomLabel";
-            this.bathroomLabel.Size = new System.Drawing.Size(65, 30);
+            this.bathroomLabel.Size = new System.Drawing.Size(0, 30);
             this.bathroomLabel.TabIndex = 27;
-            this.bathroomLabel.Text = "TITLE";
             this.bathroomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bedroomLabel
@@ -271,9 +266,8 @@ namespace Vistainn_Kiosk
             this.bedroomLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.bedroomLabel.Location = new System.Drawing.Point(38, 125);
             this.bedroomLabel.Name = "bedroomLabel";
-            this.bedroomLabel.Size = new System.Drawing.Size(65, 30);
+            this.bedroomLabel.Size = new System.Drawing.Size(0, 30);
             this.bedroomLabel.TabIndex = 26;
-            this.bedroomLabel.Text = "TITLE";
             this.bedroomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DescriptionLabel
@@ -297,9 +291,9 @@ namespace Vistainn_Kiosk
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.titleLabel.Location = new System.Drawing.Point(37, 21);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(91, 41);
+            this.titleLabel.Size = new System.Drawing.Size(212, 41);
             this.titleLabel.TabIndex = 24;
-            this.titleLabel.Text = "TITLE";
+            this.titleLabel.Text = "ROOM TYPE";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1

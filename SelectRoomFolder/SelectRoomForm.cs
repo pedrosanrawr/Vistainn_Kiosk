@@ -70,9 +70,10 @@ namespace Vistainn_Kiosk
                     roomList.Add(new RoomData
                     {
                         RoomType = reader["RoomType"].ToString(),
+                        RoomNo = reader["RoomNo"].ToString(),
                         Rate = Convert.ToDouble(reader["Rate"]),
                         Image = reader["Picture"] as byte[],
-                        Pax = Convert.ToInt32(reader["Pax"]),
+                        RoomCapacity = Convert.ToInt32(reader["RoomCapacity"]),
                         Bathroom = reader["Bathroom"].ToString(),
                         Bedroom = reader["BedRoom"].ToString(),
                         Kitchen = reader["Kitchen"].ToString(),
@@ -82,7 +83,7 @@ namespace Vistainn_Kiosk
                 }
             }
 
-            var sortedRoomList = roomList.OrderBy(r => r.Pax).ToList();
+            var sortedRoomList = roomList.OrderBy(r => r.RoomCapacity).ToList();
             displayRooms(sortedRoomList);
         }
 
@@ -153,7 +154,7 @@ namespace Vistainn_Kiosk
 
             var filteredRooms = selectedPax == 0
                 ? roomList
-                : roomList.Where(r => r.Pax == selectedPax).ToList();
+                : roomList.Where(r => r.RoomCapacity == selectedPax).ToList();
 
             displayRooms(filteredRooms);
         }
@@ -165,7 +166,7 @@ namespace Vistainn_Kiosk
         public string RoomType { get; set; }
         public double Rate { get; set; }
         public byte[] Image { get; set; }
-        public int Pax { get; set; }
+        public int RoomCapacity { get; set; }
         public string RoomNo { get; set; }
         public string Availability { get; set; }
         public string Bathroom { get; set; }

@@ -37,6 +37,6 @@ namespace Vistainn_Kiosk
     // database class
     class Database
     {
-        public string connectionString = "Server=localhost;Database=Vistainn_; Uid=root; Pwd=;";
+        public string connectionString = "Server=192.168.100.13;Port=3306;Database=vistainn;Uid=your_user;Pwd=your_password;";
     }
 }
