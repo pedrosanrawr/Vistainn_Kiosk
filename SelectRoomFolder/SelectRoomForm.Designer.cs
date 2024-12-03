@@ -35,9 +35,7 @@ namespace Vistainn_Kiosk
         {
             this.nextButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.rateLabel = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.paymentMethodComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -84,9 +82,7 @@ namespace Vistainn_Kiosk
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
-            this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Controls.Add(this.rateLabel);
-            this.guna2Panel2.Controls.Add(this.label10);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Controls.Add(this.paymentMethodComboBox);
             this.guna2Panel2.Controls.Add(this.label8);
@@ -105,19 +101,6 @@ namespace Vistainn_Kiosk
             this.guna2Panel2.Size = new System.Drawing.Size(589, 653);
             this.guna2Panel2.TabIndex = 19;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label3.Location = new System.Drawing.Point(275, 529);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 16);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "YOU CAN ONLY SELECT 2 ITEMS";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // rateLabel
             // 
             this.rateLabel.AutoSize = true;
@@ -129,19 +112,6 @@ namespace Vistainn_Kiosk
             this.rateLabel.Size = new System.Drawing.Size(0, 28);
             this.rateLabel.TabIndex = 43;
             this.rateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label10.Location = new System.Drawing.Point(275, 407);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(158, 17);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "ADD-ONS (1 ITEM EACH)";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -171,8 +141,7 @@ namespace Vistainn_Kiosk
             this.paymentMethodComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.paymentMethodComboBox.ItemHeight = 30;
             this.paymentMethodComboBox.Items.AddRange(new object[] {
-            "CASH",
-            "CREDIT CARD"});
+            "CASH"});
             this.paymentMethodComboBox.Location = new System.Drawing.Point(44, 509);
             this.paymentMethodComboBox.Name = "paymentMethodComboBox";
             this.paymentMethodComboBox.Size = new System.Drawing.Size(179, 36);
@@ -384,7 +353,6 @@ namespace Vistainn_Kiosk
         public Label DescriptionLabel;
         public Label bedroomLabel;
         public Label rateLabel;
-        public Label label10;
         public Label label9;
         private Guna.UI2.WinForms.Guna2ComboBox paymentMethodComboBox;
         public Label label8;
@@ -393,6 +361,5 @@ namespace Vistainn_Kiosk
         public Label kitchenLabel;
         public Label technologyLabel;
         public Label bathroomLabel;
-        public Label label3;
     }
 }

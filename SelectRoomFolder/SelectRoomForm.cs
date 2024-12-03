@@ -50,7 +50,7 @@ namespace Vistainn_Kiosk
                 SelectedRoomData.PaymentMethod = paymentMethodComboBox.Text; 
                 SelectedRoomData.Pax = (int)paxNumericUpDown.Value; 
 
-                parentPage.loadForm(new CustomerInfoForm(parentPage));
+                parentPage.loadForm(new AddOnsForm(parentPage));
             }
         }
 
