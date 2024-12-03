@@ -57,7 +57,7 @@ namespace Vistainn_Kiosk
         //load room list - method
          private void loadRoomList()
         {
-            string query = "SELECT * FROM room GROUP BY RoomType ORDER BY Pax";
+            string query = "SELECT * FROM room GROUP BY RoomType ORDER BY RoomCapacity";
 
             using (var conn = new MySqlConnection(database.connectionString))
             {

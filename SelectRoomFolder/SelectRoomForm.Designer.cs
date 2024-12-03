@@ -335,7 +335,7 @@ namespace Vistainn_Kiosk
             this.paxNumericUpDown.BackColor = System.Drawing.Color.Transparent;
             this.paxNumericUpDown.BorderRadius = 12;
             this.paxNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.paxNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paxNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.paxNumericUpDown.Location = new System.Drawing.Point(181, 77);
             this.paxNumericUpDown.Maximum = new decimal(new int[] {
             10,
