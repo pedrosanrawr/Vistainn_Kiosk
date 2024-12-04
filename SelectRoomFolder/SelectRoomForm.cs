@@ -41,21 +41,16 @@ namespace Vistainn_Kiosk
                 return;
             }
 
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to proceed with the selected room and " +
-                "payment method?", "Confirm Selection", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                SelectedRoomData.RoomType = titleLabel.Text; 
+                            SelectedRoomData.RoomType = titleLabel.Text; 
                 SelectedRoomData.RoomNo = roomNoComboBox.SelectedItem.ToString(); 
                 SelectedRoomData.PaymentMethod = paymentMethodComboBox.Text; 
                 SelectedRoomData.Pax = (int)paxNumericUpDown.Value; 
 
                 parentPage.loadForm(new AddOnsForm(parentPage));
-            }
         }
 
         //load room list - method
-         private void loadRoomList()
+        private void loadRoomList()
         {
             string query = "SELECT * FROM room GROUP BY RoomType ORDER BY RoomCapacity";
 
@@ -64,6 +59,8 @@ namespace Vistainn_Kiosk
                 conn.Open();
                 var cmd = new MySqlCommand(query, conn);
                 var reader = cmd.ExecuteReader();
+
+                roomList.Clear();
 
                 while (reader.Read())
                 {
@@ -83,9 +80,17 @@ namespace Vistainn_Kiosk
                 }
             }
 
-            var sortedRoomList = roomList.OrderBy(r => r.RoomCapacity).ToList();
-            displayRooms(sortedRoomList);
+            if (paxNumericUpDown.Value != 0)
+            {
+                var filteredRooms = roomList.Where(r => r.RoomCapacity == 1).ToList();
+                displayRooms(filteredRooms);
+            }
+            else
+            {
+                displayRooms(new List<RoomData>());
+            }
         }
+
 
         //display rooms - method
         private void displayRooms(IEnumerable<RoomData> roomsToDisplay)
@@ -120,7 +125,7 @@ namespace Vistainn_Kiosk
 
         private void PopulateRoomNoComboBox(string roomType)
         {
-            string query = "SELECT RoomNo FROM room WHERE RoomType = @RoomType";
+            string query = "SELECT RoomNo FROM room WHERE RoomType = @RoomType AND Availability = 'Available'";
 
             using (var conn = new MySqlConnection(database.connectionString))
             {
@@ -152,12 +157,16 @@ namespace Vistainn_Kiosk
         {
             int selectedPax = (int)paxNumericUpDown.Value;
 
-            var filteredRooms = selectedPax == 0
-                ? roomList
-                : roomList.Where(r => r.RoomCapacity == selectedPax).ToList();
+            if (selectedPax == 0)
+            {
+                displayRooms(new List<RoomData>());
+                return;
+            }
 
+            var filteredRooms = roomList.Where(r => r.RoomCapacity == selectedPax).ToList();
             displayRooms(filteredRooms);
         }
+
     }
 
     //roomData class

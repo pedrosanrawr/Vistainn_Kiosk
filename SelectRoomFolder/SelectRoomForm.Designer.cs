@@ -98,7 +98,7 @@ namespace Vistainn_Kiosk
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.guna2Panel2.Location = new System.Drawing.Point(555, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(589, 653);
+            this.guna2Panel2.Size = new System.Drawing.Size(565, 653);
             this.guna2Panel2.TabIndex = 19;
             // 
             // rateLabel
@@ -311,11 +311,21 @@ namespace Vistainn_Kiosk
             0,
             0,
             0});
+            this.paxNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.paxNumericUpDown.Name = "paxNumericUpDown";
             this.paxNumericUpDown.Size = new System.Drawing.Size(96, 29);
             this.paxNumericUpDown.TabIndex = 23;
             this.paxNumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
             this.paxNumericUpDown.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
+            this.paxNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.paxNumericUpDown.ValueChanged += new System.EventHandler(this.paxNumericUpDown_ValueChanged);
             // 
             // SelectRoomForm
