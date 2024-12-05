@@ -41,7 +41,7 @@ namespace Vistainn_Kiosk
                 return;
             }
 
-                            SelectedRoomData.RoomType = titleLabel.Text; 
+                SelectedRoomData.RoomType = titleLabel.Text; 
                 SelectedRoomData.RoomNo = roomNoComboBox.SelectedItem.ToString(); 
                 SelectedRoomData.PaymentMethod = paymentMethodComboBox.Text; 
                 SelectedRoomData.Pax = (int)paxNumericUpDown.Value; 
@@ -112,6 +112,11 @@ namespace Vistainn_Kiosk
             var clickedButton = (Guna2Button)sender;
             var clickedRoom = (RoomData)clickedButton.Tag;
 
+            SelectedRoomData.RoomType = clickedRoom.RoomType.ToUpper();
+            SelectedRoomData.RoomNo = clickedRoom.RoomNo;
+            SelectedRoomData.Rate = clickedRoom.Rate; 
+            SelectedRoomData.Pax = (int)paxNumericUpDown.Value;
+
             titleLabel.Text = clickedRoom.RoomType.ToUpper();
             bedroomLabel.Text = $"Bedroom: {clickedRoom.Bedroom.ToUpper()}";
             bathroomLabel.Text = $"Bathroom: {clickedRoom.Bathroom.ToUpper()}";
@@ -122,6 +127,7 @@ namespace Vistainn_Kiosk
 
             PopulateRoomNoComboBox(clickedRoom.RoomType);
         }
+
 
         private void PopulateRoomNoComboBox(string roomType)
         {
@@ -191,5 +197,7 @@ namespace Vistainn_Kiosk
         public static string RoomNo { get; set; }
         public static string PaymentMethod { get; set; }
         public static int Pax { get; set; }
+        public static double Rate { get; set; } 
     }
+
 }

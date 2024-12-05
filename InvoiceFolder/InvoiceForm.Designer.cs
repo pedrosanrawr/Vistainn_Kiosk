@@ -31,6 +31,10 @@
             this.backButton = new Guna.UI2.WinForms.Guna2Button();
             this.bookButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.totalPriceLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.addOnsLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.paymentMethodLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.checkOutLabel = new System.Windows.Forms.Label();
@@ -50,10 +54,6 @@
             this.fullNameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,9 +104,9 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
-            this.guna2Panel2.Controls.Add(this.label6);
+            this.guna2Panel2.Controls.Add(this.totalPriceLabel);
             this.guna2Panel2.Controls.Add(this.label8);
-            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.Controls.Add(this.addOnsLabel);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.Controls.Add(this.paymentMethodLabel);
             this.guna2Panel2.Controls.Add(this.label17);
@@ -134,6 +134,54 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1099, 567);
             this.guna2Panel2.TabIndex = 23;
+            // 
+            // totalPriceLabel
+            // 
+            this.totalPriceLabel.AutoSize = true;
+            this.totalPriceLabel.BackColor = System.Drawing.Color.Transparent;
+            this.totalPriceLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPriceLabel.ForeColor = System.Drawing.Color.White;
+            this.totalPriceLabel.Location = new System.Drawing.Point(589, 421);
+            this.totalPriceLabel.Name = "totalPriceLabel";
+            this.totalPriceLabel.Size = new System.Drawing.Size(128, 23);
+            this.totalPriceLabel.TabIndex = 44;
+            this.totalPriceLabel.Text = "TotalPrice lbl";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(589, 394);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 22);
+            this.label8.TabIndex = 43;
+            this.label8.Text = "TOTAL PRICE";
+            // 
+            // addOnsLabel
+            // 
+            this.addOnsLabel.AutoSize = true;
+            this.addOnsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.addOnsLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addOnsLabel.ForeColor = System.Drawing.Color.White;
+            this.addOnsLabel.Location = new System.Drawing.Point(589, 278);
+            this.addOnsLabel.Name = "addOnsLabel";
+            this.addOnsLabel.Size = new System.Drawing.Size(113, 23);
+            this.addOnsLabel.TabIndex = 42;
+            this.addOnsLabel.Text = "AddOns lbl";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(589, 251);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 22);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "ADD-ONS";
             // 
             // paymentMethodLabel
             // 
@@ -364,54 +412,6 @@
             this.label1.Text = "INVOICE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(589, 278);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 23);
-            this.label3.TabIndex = 42;
-            this.label3.Text = "AddOns lbl";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(589, 251);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 22);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "ADD-ONS";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(589, 421);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 23);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "TotalPrice lbl";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(589, 394);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 22);
-            this.label8.TabIndex = 43;
-            this.label8.Text = "TOTAL PRICE";
-            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,9 +455,9 @@
         private System.Windows.Forms.Label fullNameLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label totalPriceLabel;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label addOnsLabel;
         private System.Windows.Forms.Label label4;
     }
 }

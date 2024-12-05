@@ -51,6 +51,7 @@ namespace Vistainn_Kiosk
             this.roomFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.paxNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +83,7 @@ namespace Vistainn_Kiosk
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
+            this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Controls.Add(this.rateLabel);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Controls.Add(this.paymentMethodComboBox);
@@ -328,6 +330,19 @@ namespace Vistainn_Kiosk
             0});
             this.paxNumericUpDown.ValueChanged += new System.EventHandler(this.paxNumericUpDown_ValueChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.label3.Location = new System.Drawing.Point(41, 595);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 17);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "NIGHTLY RATE: ₱1000.00";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SelectRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,5 +386,6 @@ namespace Vistainn_Kiosk
         public Label kitchenLabel;
         public Label technologyLabel;
         public Label bathroomLabel;
+        public Label label3;
     }
 }

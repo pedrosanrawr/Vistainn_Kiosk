@@ -46,49 +46,9 @@ namespace Vistainn_Kiosk
             if (!CustomerInfoFolder.Validation.ValidateEmail(CustomerData.Email)) return;
             if (!CustomerInfoFolder.Validation.ValidatePhoneNumber(CustomerData.PhoneNo)) return;
 
-            MySqlConnection con = new MySqlConnection(database.connectionString);
-            con.Open();
-            MySqlTransaction trans = con.BeginTransaction();
-
-            try
-            {
-                if (string.IsNullOrEmpty(CustomerData.BookingId))
-                {
-                    string query1 = "INSERT INTO booking(FullName, PhoneNo, Email, CheckIn, CheckOut) VALUES (@FullName, @PhoneNo, @Email, @CheckIn, @CheckOut)";
-                    MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
-                    cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
-                    cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
-                    cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
-                    cmd1.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
-                    cmd1.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
-                    cmd1.ExecuteNonQuery();
-                }
-                else
-                {
-                    string query1 = "UPDATE booking SET FullName = @FullName, PhoneNo = @PhoneNo, Email = @Email, CheckIn = @CheckIn, CheckOut = @CheckOut WHERE BookingId = @BookingId";
-                    MySqlCommand cmd1 = new MySqlCommand(query1, con, trans);
-                    cmd1.Parameters.AddWithValue("@FullName", CustomerData.FullName);
-                    cmd1.Parameters.AddWithValue("@PhoneNo", CustomerData.PhoneNo);
-                    cmd1.Parameters.AddWithValue("@Email", CustomerData.Email);
-                    cmd1.Parameters.AddWithValue("@BookingId", CustomerData.BookingId);
-                    cmd1.Parameters.AddWithValue("@CheckIn", CustomerData.CheckIn);
-                    cmd1.Parameters.AddWithValue("@CheckOut", CustomerData.CheckOut);
-                    cmd1.ExecuteNonQuery();
-                }
-
-                trans.Commit();
-                parentPage.loadForm(new InvoiceForm(parentPage));
-            }
-            catch (Exception ex)
-            {
-                trans.Rollback();
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+            parentPage.loadForm(new InvoiceForm(parentPage));
         }
+
 
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -100,7 +60,6 @@ namespace Vistainn_Kiosk
 //static class - customerData
 public static class CustomerData
 {
-    public static string BookingId { get; set; } 
     public static string FullName { get; set; }
     public static string PhoneNo { get; set; }
     public static string Email { get; set; }

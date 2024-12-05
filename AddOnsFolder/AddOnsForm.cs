@@ -33,7 +33,6 @@ namespace Vistainn_Kiosk
         // next button - click
         private void nextButton_Click(object sender, EventArgs e)
         {
-            // Validate the Add-ons selection
             bool canProceed = true;
             foreach (var item in addOnItems)
             {
@@ -51,7 +50,6 @@ namespace Vistainn_Kiosk
                 return;
             }
 
-            // If validation passes, proceed to the next form
             parentPage.loadForm(new CustomerInfoForm(parentPage));
         }
 
@@ -62,7 +60,6 @@ namespace Vistainn_Kiosk
             UpdateTotalPriceLabel();
         }
 
-        // load data - method
         public void LoadData()
         {
             try
@@ -77,14 +74,17 @@ namespace Vistainn_Kiosk
                     adapter.Fill(dt);
                     aoTable.DataSource = dt;
 
-                    // Now create AddOnItems from the loaded data
+                    AddOnItem.AddOnsList.Clear();
+
                     addOnItems.Clear();
                     foreach (DataRow row in dt.Rows)
                     {
                         string name = row["AoName"].ToString();
                         double price = Convert.ToDouble(row["AoPrice"]);
-                        // Initialize with a quantity of 0, not selected by default
-                        addOnItems.Add(new AddOnItem(name, price, 0, false));
+                        var addOnItem = new AddOnItem(name, price, 0, false);
+
+                        addOnItems.Add(addOnItem);
+                        AddOnItem.AddOnsList.Add(addOnItem);
                     }
                 }
             }
@@ -94,9 +94,10 @@ namespace Vistainn_Kiosk
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred while loading payment data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred while loading add-ons data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void aoTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -107,13 +108,13 @@ namespace Vistainn_Kiosk
             }
         }
 
+        //update select and qty column
         private void UpdateAddOnItem(int rowIndex)
         {
             if (rowIndex < 0 || rowIndex >= addOnItems.Count)
                 return;
 
             var item = addOnItems[rowIndex];
-
             var selectCell = aoTable.Rows[rowIndex].Cells["Select"];
             var quantityCell = aoTable.Rows[rowIndex].Cells["AoQty"];
 
@@ -128,9 +129,11 @@ namespace Vistainn_Kiosk
             {
                 item.Quantity = quantityCell.Value != null ? Convert.ToInt32(quantityCell.Value) : 0;
             }
+
+            AddOnItem.AddOnsList[rowIndex] = item; 
         }
 
-
+        //total price label
         private void UpdateTotalPriceLabel()
         {
             double totalPrice = 0;
@@ -152,13 +155,18 @@ namespace Vistainn_Kiosk
             }
         }
     }
+
     public class AddOnItem
     {
+        //list of add ons
+        public static List<AddOnItem> AddOnsList = new List<AddOnItem>();
+
         public string Name { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
         public bool IsSelected { get; set; }
 
+        //constructor
         public AddOnItem(string name, double price, int quantity, bool isSelected)
         {
             Name = name;
@@ -167,9 +175,11 @@ namespace Vistainn_Kiosk
             IsSelected = isSelected;
         }
 
+        //get total price - method
         public double GetTotalPrice()
         {
             return IsSelected ? Quantity * Price : 0;
         }
     }
+
 }
