@@ -64,5 +64,24 @@ namespace Vistainn_Kiosk.CustomerInfoFolder
 
             return true;
         }
+
+        public static bool ValidateName(string name)
+        {
+            string pattern = @"^[a-zA-Z\s.'-]+$";
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Name cannot be empty.");
+                return false;
+            }
+
+            if (!Regex.IsMatch(name, pattern))
+            {
+                MessageBox.Show("Name can only contain letters, spaces, apostrophes, hyphens, and periods.");
+                return false;
+            }
+
+            return true;
+        }
     }
 }

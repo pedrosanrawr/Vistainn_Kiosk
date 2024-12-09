@@ -35,6 +35,7 @@ namespace Vistainn_Kiosk
         {
             this.nextButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.rateLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.paymentMethodComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -51,13 +52,13 @@ namespace Vistainn_Kiosk
             this.roomFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.paxNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // nextButton
             // 
+            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextButton.BackColor = System.Drawing.Color.Transparent;
             this.nextButton.BorderColor = System.Drawing.Color.Transparent;
             this.nextButton.BorderRadius = 20;
@@ -80,6 +81,9 @@ namespace Vistainn_Kiosk
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
             this.guna2Panel2.BorderRadius = 30;
             this.guna2Panel2.BorderThickness = 3;
@@ -103,15 +107,28 @@ namespace Vistainn_Kiosk
             this.guna2Panel2.Size = new System.Drawing.Size(565, 653);
             this.guna2Panel2.TabIndex = 19;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
+            this.label3.Location = new System.Drawing.Point(41, 595);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 17);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "NIGHTLY RATE: ₱1000.00";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // rateLabel
             // 
             this.rateLabel.AutoSize = true;
             this.rateLabel.BackColor = System.Drawing.Color.Transparent;
-            this.rateLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateLabel.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.rateLabel.Location = new System.Drawing.Point(38, 345);
+            this.rateLabel.Location = new System.Drawing.Point(38, 348);
             this.rateLabel.Name = "rateLabel";
-            this.rateLabel.Size = new System.Drawing.Size(0, 28);
+            this.rateLabel.Size = new System.Drawing.Size(0, 25);
             this.rateLabel.TabIndex = 43;
             this.rateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -185,11 +202,11 @@ namespace Vistainn_Kiosk
             // 
             this.generalLabel.AutoSize = true;
             this.generalLabel.BackColor = System.Drawing.Color.Transparent;
-            this.generalLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generalLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.generalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.generalLabel.Location = new System.Drawing.Point(38, 301);
+            this.generalLabel.Location = new System.Drawing.Point(38, 304);
             this.generalLabel.Name = "generalLabel";
-            this.generalLabel.Size = new System.Drawing.Size(0, 30);
+            this.generalLabel.Size = new System.Drawing.Size(0, 22);
             this.generalLabel.TabIndex = 30;
             this.generalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -197,11 +214,11 @@ namespace Vistainn_Kiosk
             // 
             this.kitchenLabel.AutoSize = true;
             this.kitchenLabel.BackColor = System.Drawing.Color.Transparent;
-            this.kitchenLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kitchenLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.kitchenLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.kitchenLabel.Location = new System.Drawing.Point(38, 257);
+            this.kitchenLabel.Location = new System.Drawing.Point(38, 260);
             this.kitchenLabel.Name = "kitchenLabel";
-            this.kitchenLabel.Size = new System.Drawing.Size(0, 30);
+            this.kitchenLabel.Size = new System.Drawing.Size(0, 22);
             this.kitchenLabel.TabIndex = 29;
             this.kitchenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -209,11 +226,11 @@ namespace Vistainn_Kiosk
             // 
             this.technologyLabel.AutoSize = true;
             this.technologyLabel.BackColor = System.Drawing.Color.Transparent;
-            this.technologyLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.technologyLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.technologyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.technologyLabel.Location = new System.Drawing.Point(38, 213);
+            this.technologyLabel.Location = new System.Drawing.Point(38, 216);
             this.technologyLabel.Name = "technologyLabel";
-            this.technologyLabel.Size = new System.Drawing.Size(0, 30);
+            this.technologyLabel.Size = new System.Drawing.Size(0, 22);
             this.technologyLabel.TabIndex = 28;
             this.technologyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -221,11 +238,11 @@ namespace Vistainn_Kiosk
             // 
             this.bathroomLabel.AutoSize = true;
             this.bathroomLabel.BackColor = System.Drawing.Color.Transparent;
-            this.bathroomLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bathroomLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bathroomLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.bathroomLabel.Location = new System.Drawing.Point(38, 169);
+            this.bathroomLabel.Location = new System.Drawing.Point(38, 172);
             this.bathroomLabel.Name = "bathroomLabel";
-            this.bathroomLabel.Size = new System.Drawing.Size(0, 30);
+            this.bathroomLabel.Size = new System.Drawing.Size(0, 22);
             this.bathroomLabel.TabIndex = 27;
             this.bathroomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -233,11 +250,11 @@ namespace Vistainn_Kiosk
             // 
             this.bedroomLabel.AutoSize = true;
             this.bedroomLabel.BackColor = System.Drawing.Color.Transparent;
-            this.bedroomLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bedroomLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bedroomLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.bedroomLabel.Location = new System.Drawing.Point(38, 125);
+            this.bedroomLabel.Location = new System.Drawing.Point(38, 128);
             this.bedroomLabel.Name = "bedroomLabel";
-            this.bedroomLabel.Size = new System.Drawing.Size(0, 30);
+            this.bedroomLabel.Size = new System.Drawing.Size(0, 22);
             this.bedroomLabel.TabIndex = 26;
             this.bedroomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -282,6 +299,8 @@ namespace Vistainn_Kiosk
             // 
             // roomFlowLayoutPanel
             // 
+            this.roomFlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.roomFlowLayoutPanel.AutoScroll = true;
             this.roomFlowLayoutPanel.Location = new System.Drawing.Point(62, 125);
             this.roomFlowLayoutPanel.Name = "roomFlowLayoutPanel";
@@ -330,19 +349,6 @@ namespace Vistainn_Kiosk
             0});
             this.paxNumericUpDown.ValueChanged += new System.EventHandler(this.paxNumericUpDown_ValueChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.label3.Location = new System.Drawing.Point(41, 595);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(155, 17);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "NIGHTLY RATE: ₱1000.00";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // SelectRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +365,7 @@ namespace Vistainn_Kiosk
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SelectRoomForm";
             this.Text = "SelectRoomForm";
+            this.Load += new System.EventHandler(this.SelectRoomForm_Load);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paxNumericUpDown)).EndInit();

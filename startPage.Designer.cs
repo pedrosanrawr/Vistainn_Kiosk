@@ -39,6 +39,7 @@ namespace Vistainn_Kiosk
             this.guna2Shapes1 = new Guna.UI2.WinForms.Guna2Shapes();
             this.label3 = new System.Windows.Forms.Label();
             this.logoPictureBox = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@ namespace Vistainn_Kiosk
             this.booknowButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
             this.booknowButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.booknowButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.booknowButton.Location = new System.Drawing.Point(457, 364);
+            this.booknowButton.Location = new System.Drawing.Point(452, 374);
             this.booknowButton.MaximumSize = new System.Drawing.Size(200, 70);
             this.booknowButton.Name = "booknowButton";
             this.booknowButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
@@ -142,6 +143,14 @@ namespace Vistainn_Kiosk
             this.logoPictureBox.TabIndex = 9;
             this.logoPictureBox.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(-528, 378);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 10;
+            // 
             // startPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +159,7 @@ namespace Vistainn_Kiosk
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1094, 648);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.booknowButton);
             this.Controls.Add(this.label3);
@@ -197,6 +207,7 @@ namespace Vistainn_Kiosk
         private Guna.UI2.WinForms.Guna2Shapes guna2Shapes1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2PictureBox logoPictureBox;
+        private Label label4;
     }
 }
 

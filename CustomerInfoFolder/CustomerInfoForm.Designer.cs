@@ -1,4 +1,6 @@
-﻿namespace Vistainn_Kiosk
+﻿using System;
+
+namespace Vistainn_Kiosk
 {
     partial class CustomerInfoForm
     {
@@ -45,6 +47,7 @@
             // 
             // nextButton
             // 
+            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextButton.BackColor = System.Drawing.Color.Transparent;
             this.nextButton.BorderColor = System.Drawing.Color.Transparent;
             this.nextButton.BorderRadius = 20;
@@ -66,6 +69,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,6 +83,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,6 +98,7 @@
             // fullNameTextBox
             // 
             this.fullNameTextBox.AcceptsReturn = true;
+            this.fullNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fullNameTextBox.BorderRadius = 10;
             this.fullNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fullNameTextBox.DefaultText = "";
@@ -113,6 +119,7 @@
             // 
             // phoneNoTextBox
             // 
+            this.phoneNoTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.phoneNoTextBox.BorderRadius = 10;
             this.phoneNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.phoneNoTextBox.DefaultText = "";
@@ -133,6 +140,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,6 +154,7 @@
             // 
             // emailTextBox
             // 
+            this.emailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.emailTextBox.BorderRadius = 10;
             this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.emailTextBox.DefaultText = "";
@@ -166,6 +175,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,6 +189,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,6 +203,7 @@
             // 
             // checkInDateTimePicker
             // 
+            this.checkInDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkInDateTimePicker.BackColor = System.Drawing.Color.Transparent;
             this.checkInDateTimePicker.BorderRadius = 10;
             this.checkInDateTimePicker.Checked = true;
@@ -204,10 +216,11 @@
             this.checkInDateTimePicker.Name = "checkInDateTimePicker";
             this.checkInDateTimePicker.Size = new System.Drawing.Size(262, 30);
             this.checkInDateTimePicker.TabIndex = 110;
-            this.checkInDateTimePicker.Value = new System.DateTime(2024, 11, 16, 9, 16, 16, 375);
+            this.checkInDateTimePicker.Value = DateTime.Now;
             // 
             // checkOutDateTimePicker
             // 
+            this.checkOutDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkOutDateTimePicker.BackColor = System.Drawing.Color.Transparent;
             this.checkOutDateTimePicker.BorderRadius = 10;
             this.checkOutDateTimePicker.Checked = true;
@@ -220,10 +233,11 @@
             this.checkOutDateTimePicker.Name = "checkOutDateTimePicker";
             this.checkOutDateTimePicker.Size = new System.Drawing.Size(262, 30);
             this.checkOutDateTimePicker.TabIndex = 112;
-            this.checkOutDateTimePicker.Value = new System.DateTime(2024, 11, 16, 9, 16, 16, 375);
+            this.checkOutDateTimePicker.Value = DateTime.Now.AddDays(1);
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,6 +251,7 @@
             // 
             // backButton
             // 
+            this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.backButton.BackColor = System.Drawing.Color.Transparent;
             this.backButton.BorderColor = System.Drawing.Color.Transparent;
             this.backButton.BorderRadius = 20;

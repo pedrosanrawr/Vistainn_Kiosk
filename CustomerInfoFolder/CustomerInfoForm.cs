@@ -20,18 +20,10 @@ namespace Vistainn_Kiosk
         Database database = new Database();
         private mainPage parentPage;
 
-        public CustomerInfoForm() { }
-
         public CustomerInfoForm(mainPage parent)
         {
             InitializeComponent();
             this.parentPage = parent;
-
-            fullNameTextBox.Text = CustomerData.FullName;
-            phoneNoTextBox.Text = CustomerData.PhoneNo;
-            emailTextBox.Text = CustomerData.Email;
-            checkInDateTimePicker.Value = CustomerData.CheckIn != DateTime.MinValue ? CustomerData.CheckIn : DateTime.Today;
-            checkOutDateTimePicker.Value = CustomerData.CheckOut != DateTime.MinValue ? CustomerData.CheckOut : DateTime.Today.AddDays(1);
         }
 
         private void nextButton_Click(object sender, EventArgs e)
@@ -45,6 +37,7 @@ namespace Vistainn_Kiosk
             if (!CustomerInfoFolder.Validation.ValidateDates(CustomerData.CheckIn, CustomerData.CheckOut)) return;
             if (!CustomerInfoFolder.Validation.ValidateEmail(CustomerData.Email)) return;
             if (!CustomerInfoFolder.Validation.ValidatePhoneNumber(CustomerData.PhoneNo)) return;
+            if (!CustomerInfoFolder.Validation.ValidateName(CustomerData.FullName)) return;
 
             parentPage.loadForm(new InvoiceForm(parentPage));
         }

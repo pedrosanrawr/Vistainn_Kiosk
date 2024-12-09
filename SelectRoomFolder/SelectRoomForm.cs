@@ -114,20 +114,25 @@ namespace Vistainn_Kiosk
 
             SelectedRoomData.RoomType = clickedRoom.RoomType.ToUpper();
             SelectedRoomData.RoomNo = clickedRoom.RoomNo;
-            SelectedRoomData.Rate = clickedRoom.Rate; 
+            SelectedRoomData.Rate = clickedRoom.Rate;
             SelectedRoomData.Pax = (int)paxNumericUpDown.Value;
 
+            SelectedRoomData.Bedroom = clickedRoom.Bedroom;
+            SelectedRoomData.Bathroom = clickedRoom.Bathroom;
+            SelectedRoomData.Kitchen = clickedRoom.Kitchen;
+            SelectedRoomData.Technology = clickedRoom.Technology;
+            SelectedRoomData.General = clickedRoom.General;
+
             titleLabel.Text = clickedRoom.RoomType.ToUpper();
-            bedroomLabel.Text = $"Bedroom: {clickedRoom.Bedroom.ToUpper()}";
-            bathroomLabel.Text = $"Bathroom: {clickedRoom.Bathroom.ToUpper()}";
-            kitchenLabel.Text = $"Kitchen: {clickedRoom.Kitchen.ToUpper()}";
-            technologyLabel.Text = $"Technology: {clickedRoom.Technology.ToUpper()}";
-            generalLabel.Text = $"General: {clickedRoom.General.ToUpper()}";
-            rateLabel.Text = $"Rate: ₱{clickedRoom.Rate:0.00}";
+            bedroomLabel.Text = $"BEDROOM: {clickedRoom.Bedroom.ToUpper()}";
+            bathroomLabel.Text = $"BATHROOM: {clickedRoom.Bathroom.ToUpper()}";
+            kitchenLabel.Text = $"KITCHEN: {clickedRoom.Kitchen.ToUpper()}";
+            technologyLabel.Text = $"TECHNOLOGY: {clickedRoom.Technology.ToUpper()}";
+            generalLabel.Text = $"GENERAL: {clickedRoom.General.ToUpper()}";
+            rateLabel.Text = $"RATE: ₱{clickedRoom.Rate:0.00}";
 
             PopulateRoomNoComboBox(clickedRoom.RoomType);
         }
-
 
         private void PopulateRoomNoComboBox(string roomType)
         {
@@ -173,6 +178,24 @@ namespace Vistainn_Kiosk
             displayRooms(filteredRooms);
         }
 
+        private void SelectRoomForm_Load(object sender, EventArgs e)
+        {
+            paxNumericUpDown.Value = 1;
+
+            titleLabel.Text = SelectedRoomData.RoomType;
+            bedroomLabel.Text = $"BEDROOM: {SelectedRoomData.Bedroom}";
+            bathroomLabel.Text = $"BATHROOM: {SelectedRoomData.Bathroom}";
+            kitchenLabel.Text = $"KITCHEN: {SelectedRoomData.Kitchen}";
+            technologyLabel.Text = $"TECHNOLOGY: {SelectedRoomData.Technology}";
+            generalLabel.Text = $"GENERAL: {SelectedRoomData.General}";
+            rateLabel.Text = $"RATE: ₱{SelectedRoomData.Rate:0.00}";
+            paymentMethodComboBox.Text = SelectedRoomData.PaymentMethod;
+
+            PopulateRoomNoComboBox(SelectedRoomData.RoomType);
+
+            paxNumericUpDown.Value = SelectedRoomData.Pax > 0 ? SelectedRoomData.Pax : 1;
+        }
+
     }
 
     //roomData class
@@ -197,7 +220,12 @@ namespace Vistainn_Kiosk
         public static string RoomNo { get; set; }
         public static string PaymentMethod { get; set; }
         public static int Pax { get; set; }
-        public static double Rate { get; set; } 
+        public static double Rate { get; set; }
+        public static string Bedroom { get; set; }
+        public static string Bathroom { get; set; }
+        public static string Kitchen { get; set; }
+        public static string Technology { get; set; }
+        public static string General { get; set; }
     }
 
 }

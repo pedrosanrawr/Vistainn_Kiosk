@@ -22,6 +22,7 @@ namespace Vistainn_Kiosk
         {
             InitializeComponent();
             this.parentPage = parent;
+
         }
 
         // back button - click
