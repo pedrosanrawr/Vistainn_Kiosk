@@ -8,13 +8,13 @@ namespace Vistainn_Kiosk.SelectRoomFolder
 {
     internal class Rooms
     {
-        // flowLayoutPanel elements 
+        //flowLayoutPanel elements 
         public Guna2Button roomButton;
         private Guna2PictureBox pictureBox;
         private Label roomTypeLabel;
         private Label rateLabel;
 
-        // create room display - method
+        //create room display - method
         public void createRoomDisplay(string roomType, double rate, byte[] imageBytes)
         {
             roomButton = new Guna2Button

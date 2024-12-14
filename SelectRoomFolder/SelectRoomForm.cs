@@ -1,5 +1,4 @@
 ﻿using Guna.UI2.WinForms;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +9,9 @@ namespace Vistainn_Kiosk
 {
     public partial class SelectRoomForm : Form
     {
-        Database database = new Database();
-        Rooms rooms = new Rooms();
-        List<RoomData> roomList = new List<RoomData>();
+        Database database = new MySqlDatabase();
+        private Rooms rooms = new Rooms();
+        private List<RoomData> roomList = new List<RoomData>();
         private mainPage parentPage;
 
         public SelectRoomForm(mainPage parent)
@@ -27,26 +26,25 @@ namespace Vistainn_Kiosk
         {
             if (roomNoComboBox.SelectedIndex == -1 || roomNoComboBox.Text == "No Rooms Available")
             {
-                MessageBox.Show("Please select a room before proceeding.", 
+                MessageBox.Show("Please select a room before proceeding.",
                     "Selection Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-
             if (string.IsNullOrEmpty(paymentMethodComboBox.Text) ||
                 (paymentMethodComboBox.Text != "CREDIT CARD" && paymentMethodComboBox.Text != "CASH"))
             {
-                MessageBox.Show("Please select a valid payment method (ID Card or Cash) before proceeding.", 
+                MessageBox.Show("Please select a valid payment method (CREDIT CARD or CASH) before proceeding.",
                     "Payment Method Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-                SelectedRoomData.RoomType = titleLabel.Text; 
-                SelectedRoomData.RoomNo = roomNoComboBox.SelectedItem.ToString(); 
-                SelectedRoomData.PaymentMethod = paymentMethodComboBox.Text; 
-                SelectedRoomData.Pax = (int)paxNumericUpDown.Value; 
+            SelectedRoomData.RoomType = titleLabel.Text;
+            SelectedRoomData.RoomNo = roomNoComboBox.SelectedItem.ToString();
+            SelectedRoomData.PaymentMethod = paymentMethodComboBox.Text;
+            SelectedRoomData.Pax = (int)paxNumericUpDown.Value;
 
-                parentPage.loadForm(new AddOnsForm(parentPage));
+            parentPage.loadForm(new AddOnsForm(parentPage));
         }
 
         //load room list - method
@@ -54,30 +52,25 @@ namespace Vistainn_Kiosk
         {
             string query = "SELECT * FROM room GROUP BY RoomType ORDER BY RoomCapacity";
 
-            using (var conn = new MySqlConnection(database.connectionString))
+            var reader = database.ExecuteReader(query);
+
+            roomList.Clear();
+
+            while (reader.Read())
             {
-                conn.Open();
-                var cmd = new MySqlCommand(query, conn);
-                var reader = cmd.ExecuteReader();
-
-                roomList.Clear();
-
-                while (reader.Read())
+                roomList.Add(new RoomData
                 {
-                    roomList.Add(new RoomData
-                    {
-                        RoomType = reader["RoomType"].ToString(),
-                        RoomNo = reader["RoomNo"].ToString(),
-                        Rate = Convert.ToDouble(reader["Rate"]),
-                        Image = reader["Picture"] as byte[],
-                        RoomCapacity = Convert.ToInt32(reader["RoomCapacity"]),
-                        Bathroom = reader["Bathroom"].ToString(),
-                        Bedroom = reader["BedRoom"].ToString(),
-                        Kitchen = reader["Kitchen"].ToString(),
-                        Technology = reader["Technology"].ToString(),
-                        General = reader["General"].ToString()
-                    });
-                }
+                    RoomType = reader["RoomType"].ToString(),
+                    RoomNo = reader["RoomNo"].ToString(),
+                    Rate = Convert.ToDouble(reader["Rate"]),
+                    Image = reader["Picture"] as byte[],
+                    RoomCapacity = Convert.ToInt32(reader["RoomCapacity"]),
+                    Bathroom = reader["Bathroom"].ToString(),
+                    Bedroom = reader["BedRoom"].ToString(),
+                    Kitchen = reader["Kitchen"].ToString(),
+                    Technology = reader["Technology"].ToString(),
+                    General = reader["General"].ToString()
+                });
             }
 
             if (paxNumericUpDown.Value != 0)
@@ -90,7 +83,6 @@ namespace Vistainn_Kiosk
                 displayRooms(new List<RoomData>());
             }
         }
-
 
         //display rooms - method
         private void displayRooms(IEnumerable<RoomData> roomsToDisplay)
@@ -107,6 +99,7 @@ namespace Vistainn_Kiosk
             }
         }
 
+        //room button - click
         private void RoomButton_Click(object sender, EventArgs e)
         {
             var clickedButton = (Guna2Button)sender;
@@ -134,36 +127,36 @@ namespace Vistainn_Kiosk
             PopulateRoomNoComboBox(clickedRoom.RoomType);
         }
 
+        //room no combo box
         private void PopulateRoomNoComboBox(string roomType)
         {
             string query = "SELECT RoomNo FROM room WHERE RoomType = @RoomType AND Availability = 'Available'";
 
-            using (var conn = new MySqlConnection(database.connectionString))
+            var parameters = new Dictionary<string, object>
             {
-                conn.Open();
-                var cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@RoomType", roomType);
-                var reader = cmd.ExecuteReader();
+                { "@RoomType", roomType }
+            };
 
-                roomNoComboBox.Items.Clear();
+            var reader = database.ExecuteReader(query, parameters);
 
-                while (reader.Read())
-                {
-                    roomNoComboBox.Items.Add(reader["RoomNo"].ToString());
-                }
+            roomNoComboBox.Items.Clear();
 
-                if (roomNoComboBox.Items.Count > 0)
-                {
-                    roomNoComboBox.SelectedIndex = 0;
-                }
-                else
-                {
-                    roomNoComboBox.Text = "No Rooms Available";
-                }
+            while (reader.Read())
+            {
+                roomNoComboBox.Items.Add(reader["RoomNo"].ToString());
+            }
+
+            if (roomNoComboBox.Items.Count > 0)
+            {
+                roomNoComboBox.SelectedIndex = 0;
+            }
+            else
+            {
+                roomNoComboBox.Text = "No Rooms Available";
             }
         }
 
-        //pax numeric up/down - event
+        //pax numeric drop down - event
         private void paxNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             int selectedPax = (int)paxNumericUpDown.Value;
@@ -178,6 +171,7 @@ namespace Vistainn_Kiosk
             displayRooms(filteredRooms);
         }
 
+        //load select room form
         private void SelectRoomForm_Load(object sender, EventArgs e)
         {
             paxNumericUpDown.Value = 1;
@@ -195,10 +189,9 @@ namespace Vistainn_Kiosk
 
             paxNumericUpDown.Value = SelectedRoomData.Pax > 0 ? SelectedRoomData.Pax : 1;
         }
-
     }
 
-    //roomData class
+    //room data class
     public class RoomData
     {
         public string RoomType { get; set; }
@@ -214,6 +207,7 @@ namespace Vistainn_Kiosk
         public string General { get; set; }
     }
 
+    //selected room data class
     public static class SelectedRoomData
     {
         public static string RoomType { get; set; }
@@ -227,5 +221,4 @@ namespace Vistainn_Kiosk
         public static string Technology { get; set; }
         public static string General { get; set; }
     }
-
 }

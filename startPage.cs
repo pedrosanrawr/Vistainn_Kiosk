@@ -17,6 +17,7 @@ namespace Vistainn_Kiosk
             InitializeComponent();
         }
 
+        //book now button
         private void booknowButton_Click(object sender, EventArgs e)
         {
             mainPage mainPage = new mainPage();

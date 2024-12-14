@@ -10,6 +10,7 @@ namespace Vistainn_Kiosk.CustomerInfoFolder
 {
     internal class Validation
     {
+        //date
         public static bool ValidateDates(DateTime checkIn, DateTime checkOut)
         {
             if (checkIn < DateTime.Today)
@@ -27,6 +28,7 @@ namespace Vistainn_Kiosk.CustomerInfoFolder
             return true;
         }
 
+        //email
         public static bool ValidateEmail(string email)
         {
             string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
@@ -45,7 +47,8 @@ namespace Vistainn_Kiosk.CustomerInfoFolder
 
             return true;
         }
-
+        
+        //phone no
         public static bool ValidatePhoneNumber(string phoneNo)
         {
             if (string.IsNullOrEmpty(phoneNo))
@@ -65,6 +68,7 @@ namespace Vistainn_Kiosk.CustomerInfoFolder
             return true;
         }
 
+        //name
         public static bool ValidateName(string name)
         {
             string pattern = @"^[a-zA-Z\s.'-]+$";

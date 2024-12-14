@@ -155,6 +155,7 @@
       <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomerInfoFolder\Validation.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="InvoiceFolder\InvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>

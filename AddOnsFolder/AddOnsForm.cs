@@ -1,37 +1,29 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vistainn_Kiosk
 {
     public partial class AddOnsForm : Form
     {
-        Database database = new Database();
+        Database database = new MySqlDatabase();
         private mainPage parentPage;
-
         private List<AddOnItem> addOnItems = new List<AddOnItem>();
 
         public AddOnsForm(mainPage parent)
         {
             InitializeComponent();
             this.parentPage = parent;
-
         }
 
-        // back button - click
+        //back button - click
         private void backButton_Click(object sender, EventArgs e)
         {
             parentPage.loadForm(new SelectRoomForm(parentPage));
         }
 
-        // next button - click
+        //next button - click
         private void nextButton_Click(object sender, EventArgs e)
         {
             bool canProceed = true;
@@ -54,30 +46,30 @@ namespace Vistainn_Kiosk
             parentPage.loadForm(new CustomerInfoForm(parentPage));
         }
 
-        // add ons form - load
+        //load addons form
         private void AddOnsForm_Load(object sender, EventArgs e)
         {
             LoadData();
             UpdateTotalPriceLabel();
         }
 
+        //populate table
         public void LoadData()
         {
             try
             {
                 string query = "SELECT AoName, AoPrice FROM AddOns";
 
-                using (MySqlConnection con = new MySqlConnection(database.connectionString))
+                var parameters = new Dictionary<string, object>();
+                using (IDataReader reader = database.ExecuteReader(query, parameters))
                 {
-                    con.Open();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+                    var dt = new DataTable();
+                    dt.Load(reader);
                     aoTable.DataSource = dt;
 
                     AddOnItem.AddOnsList.Clear();
-
                     addOnItems.Clear();
+
                     foreach (DataRow row in dt.Rows)
                     {
                         string name = row["AoName"].ToString();
@@ -89,17 +81,13 @@ namespace Vistainn_Kiosk
                     }
                 }
             }
-            catch (MySqlException sqlEx)
-            {
-                MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while loading add-ons data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
+        //calculate row 
         private void aoTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -109,7 +97,7 @@ namespace Vistainn_Kiosk
             }
         }
 
-        //update select and qty column
+        //update add on item - method
         private void UpdateAddOnItem(int rowIndex)
         {
             if (rowIndex < 0 || rowIndex >= addOnItems.Count)
@@ -131,7 +119,7 @@ namespace Vistainn_Kiosk
                 item.Quantity = quantityCell.Value != null ? Convert.ToInt32(quantityCell.Value) : 0;
             }
 
-            AddOnItem.AddOnsList[rowIndex] = item; 
+            AddOnItem.AddOnsList[rowIndex] = item;
         }
 
         //total price label
@@ -147,6 +135,7 @@ namespace Vistainn_Kiosk
             totalPriceLabel.Text = $"TOTAL AMOUNT OF ADD-ONS: ₱{totalPrice:F2}";
         }
 
+        //automatic update total price
         private void aoTable_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (aoTable.IsCurrentCellDirty)
@@ -157,9 +146,9 @@ namespace Vistainn_Kiosk
         }
     }
 
+    //add on item class
     public class AddOnItem
     {
-        //list of add ons
         public static List<AddOnItem> AddOnsList = new List<AddOnItem>();
 
         public string Name { get; set; }
@@ -167,7 +156,6 @@ namespace Vistainn_Kiosk
         public int Quantity { get; set; }
         public bool IsSelected { get; set; }
 
-        //constructor
         public AddOnItem(string name, double price, int quantity, bool isSelected)
         {
             Name = name;
@@ -176,11 +164,9 @@ namespace Vistainn_Kiosk
             IsSelected = isSelected;
         }
 
-        //get total price - method
         public double GetTotalPrice()
         {
             return IsSelected ? Quantity * Price : 0;
         }
     }
-
 }

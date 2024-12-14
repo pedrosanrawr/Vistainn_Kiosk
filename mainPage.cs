@@ -33,10 +33,4 @@ namespace Vistainn_Kiosk
 
 
     }
-
-    // database class
-    class Database
-    {
-        public string connectionString = "Server=localhost;Database=vistainn; Uid=root; Pwd=;";
-    }
 }

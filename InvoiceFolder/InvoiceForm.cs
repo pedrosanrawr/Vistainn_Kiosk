@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Vistainn_Kiosk;
 
 namespace Vistainn_Kiosk
 {
     public partial class InvoiceForm : Form
     {
-        private Database database = new Database();
+        Database database = new MySqlDatabase();
         private mainPage parentPage;
 
         public InvoiceForm(mainPage parent)
@@ -17,11 +18,13 @@ namespace Vistainn_Kiosk
             this.parentPage = parent;
         }
 
+        //back button - click
         private void backButton_Click(object sender, EventArgs e)
         {
             parentPage.loadForm(new CustomerInfoForm(parentPage));
         }
 
+        //book button - click
         private void bookButton_Click(object sender, EventArgs e)
         {
             string fullName = CustomerData.FullName;
@@ -36,7 +39,7 @@ namespace Vistainn_Kiosk
 
             var addOns = GetSelectedAddOns(out double totalAddOnsAmount);
 
-            double nightlyRate = 1000; 
+            double nightlyRate = 1000;
             int numberOfNights = (checkOutDate - checkInDate).Days;
             double roomRate = SelectedRoomData.Rate;
             double totalRoomCost = nightlyRate * numberOfNights + roomRate;
@@ -50,6 +53,7 @@ namespace Vistainn_Kiosk
             }
         }
 
+        //get selected add ons - method
         private List<string> GetSelectedAddOns(out double totalAmount)
         {
             totalAmount = 0;
@@ -67,6 +71,7 @@ namespace Vistainn_Kiosk
             return addOnDetails;
         }
 
+        //save booking and payment
         private bool SaveBookingAndPayment(string fullName, string phoneNo, string email, string roomNo, string roomType, int pax, DateTime checkInDate, DateTime checkOutDate, List<string> addOns, double totalBookingAmount, string paymentMethod)
         {
             string bookingQuery = @"
@@ -80,33 +85,38 @@ namespace Vistainn_Kiosk
 
             try
             {
-                using (var conn = new MySqlConnection(database.connectionString))
+                using (var conn = database.CreateConnection())
                 {
-                    conn.Open();
+                    database.OpenConnection(conn);
+
                     using (var transaction = conn.BeginTransaction())
                     {
-                        var cmd = new MySqlCommand(bookingQuery, conn, transaction);
-                        cmd.Parameters.AddWithValue("@FullName", fullName);
-                        cmd.Parameters.AddWithValue("@PhoneNo", phoneNo);
-                        cmd.Parameters.AddWithValue("@Email", email);
-                        cmd.Parameters.AddWithValue("@RoomNo", roomNo);
-                        cmd.Parameters.AddWithValue("@RoomType", roomType);
-                        cmd.Parameters.AddWithValue("@Pax", pax);
-                        cmd.Parameters.AddWithValue("@CheckIn", checkInDate);
-                        cmd.Parameters.AddWithValue("@CheckOut", checkOutDate);
-                        cmd.Parameters.AddWithValue("@AoName", string.Join(",", addOns));
-                        cmd.Parameters.AddWithValue("@AoPrice", string.Join(",", addOns.Select(a => a.Split('-')[1].Trim().Split('=')[0].Trim('₱'))));
-                        cmd.Parameters.AddWithValue("@AoQty", string.Join(",", addOns.Select(a => a.Split('x')[0].Trim())));
-                        cmd.Parameters.AddWithValue("@Status", "Confirmed");
+                        var bookingCmd = conn.CreateCommand();
+                        bookingCmd.CommandText = bookingQuery;
 
-                        long bookingId = Convert.ToInt64(cmd.ExecuteScalar());
+                        bookingCmd.Parameters.Add(new MySqlParameter("@FullName", fullName));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@PhoneNo", phoneNo));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@Email", email));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@RoomNo", roomNo));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@RoomType", roomType));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@Pax", pax));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@CheckIn", checkInDate));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@CheckOut", checkOutDate));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@AoName", string.Join(",", addOns)));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@AoPrice", string.Join(",", addOns.Select(a => a.Split('-')[1].Trim().Split('=')[0].Trim('₱')))));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@AoQty", string.Join(",", addOns.Select(a => a.Split('x')[0].Trim()))));
+                        bookingCmd.Parameters.Add(new MySqlParameter("@Status", "Confirmed"));
 
-                        var paymentCmd = new MySqlCommand(paymentQuery, conn, transaction);
-                        paymentCmd.Parameters.AddWithValue("@BookingId", bookingId);
-                        paymentCmd.Parameters.AddWithValue("@FullName", fullName);
-                        paymentCmd.Parameters.AddWithValue("@Amount", totalBookingAmount);
-                        paymentCmd.Parameters.AddWithValue("@PaymentMethod", paymentMethod);
-                        paymentCmd.Parameters.AddWithValue("@Status", "Pending");
+                        long bookingId = Convert.ToInt64(bookingCmd.ExecuteScalar());
+
+                        var paymentCmd = conn.CreateCommand();
+                        paymentCmd.CommandText = paymentQuery;
+
+                        paymentCmd.Parameters.Add(new MySqlParameter("@BookingId", bookingId));
+                        paymentCmd.Parameters.Add(new MySqlParameter("@FullName", fullName));
+                        paymentCmd.Parameters.Add(new MySqlParameter("@Amount", totalBookingAmount));
+                        paymentCmd.Parameters.Add(new MySqlParameter("@PaymentMethod", paymentMethod));
+                        paymentCmd.Parameters.Add(new MySqlParameter("@Status", "Pending"));
 
                         paymentCmd.ExecuteNonQuery();
                         transaction.Commit();
@@ -121,7 +131,7 @@ namespace Vistainn_Kiosk
             }
         }
 
-        // displays the invoice in the ui
+        //retrieve invoice
         private void DisplayInvoice()
         {
             fullNameLabel.Text = CustomerData.FullName;
@@ -148,6 +158,7 @@ namespace Vistainn_Kiosk
             totalPriceLabel.Text = $"₱{totalBookingAmount:0.00}";
         }
 
+        //load invoice form
         private void InvoiceForm_Load(object sender, EventArgs e)
         {
             DisplayInvoice();
