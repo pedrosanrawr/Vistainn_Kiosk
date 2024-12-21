@@ -8,7 +8,7 @@ namespace Vistainn_Kiosk
     //database class
     public abstract class Database
     {
-        public string ConnectionString { get; set; } = "Server=localhost;Database=vistainn; Uid=root; Pwd=;";
+        public string connectionString { get; set; } = "Server=localhost;Database=vistainn; Uid=root; Pwd=;";
 
         public abstract IDbConnection CreateConnection();
 
@@ -22,7 +22,7 @@ namespace Vistainn_Kiosk
     {
         public override IDbConnection CreateConnection()
         {
-            return new MySqlConnection(ConnectionString);
+            return new MySqlConnection(connectionString);
         }
 
         public override void OpenConnection(IDbConnection connection)
