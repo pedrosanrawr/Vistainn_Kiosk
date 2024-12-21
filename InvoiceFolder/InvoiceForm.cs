@@ -48,8 +48,7 @@ namespace Vistainn_Kiosk
             if (SaveBookingAndPayment(fullName, phoneNo, email, roomNo, roomType, pax, checkInDate, checkOutDate, addOns, totalBookingAmount, paymentMethod))
             {
                 MessageBox.Show("Booking confirmed! Thank you for choosing VistaInn.", "Booking Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new startPage().Show();
-                this.Close();
+                parentPage.loadForm(new startPage(parentPage));
             }
         }
 

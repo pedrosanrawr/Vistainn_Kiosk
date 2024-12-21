@@ -12,17 +12,18 @@ namespace Vistainn_Kiosk
 {
     public partial class startPage : Form
     {
-        public startPage()
+        private mainPage parentPage;
+
+        public startPage(mainPage parent)
         {
             InitializeComponent();
+            this.parentPage = parent;
         }
 
         //book now button
         private void booknowButton_Click(object sender, EventArgs e)
         {
-            mainPage mainPage = new mainPage();
-            mainPage.Show();
-            this.Hide();
+            parentPage.loadForm(new SelectRoomForm(parentPage));
         }
     }
 }

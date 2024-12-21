@@ -25,7 +25,15 @@ namespace Vistainn_Kiosk.SelectRoomFolder
                 FillColor = Color.FromArgb(237, 228, 225),
                 BorderRadius = 20,
                 Padding = new Padding(5),
+                ShadowDecoration =
+                {
+                    BorderRadius = 20,
+                    Depth = 15,
+                    Enabled = true,
+                    Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5)
+                }
             };
+
 
             pictureBox = new Guna2PictureBox
             {

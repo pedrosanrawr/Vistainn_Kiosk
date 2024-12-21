@@ -50,19 +50,19 @@ namespace Vistainn_Kiosk
             this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextButton.BackColor = System.Drawing.Color.Transparent;
             this.nextButton.BorderColor = System.Drawing.Color.Transparent;
-            this.nextButton.BorderRadius = 20;
+            this.nextButton.BorderRadius = 25;
             this.nextButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nextButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.nextButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.nextButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.nextButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.nextButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(144)))), ((int)(((byte)(36)))));
-            this.nextButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nextButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.nextButton.Location = new System.Drawing.Point(893, 567);
+            this.nextButton.Location = new System.Drawing.Point(1079, 702);
             this.nextButton.Name = "nextButton";
             this.nextButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.nextButton.Size = new System.Drawing.Size(143, 45);
+            this.nextButton.Size = new System.Drawing.Size(200, 54);
             this.nextButton.TabIndex = 13;
             this.nextButton.Text = "NEXT";
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
@@ -72,11 +72,11 @@ namespace Vistainn_Kiosk
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label1.Location = new System.Drawing.Point(326, 50);
+            this.label1.Location = new System.Drawing.Point(361, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(447, 41);
+            this.label1.Size = new System.Drawing.Size(614, 56);
             this.label1.TabIndex = 14;
             this.label1.Text = "CUSTOMER INFORMATION";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -86,11 +86,11 @@ namespace Vistainn_Kiosk
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label2.Location = new System.Drawing.Point(418, 153);
+            this.label2.Location = new System.Drawing.Point(505, 191);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.Size = new System.Drawing.Size(119, 22);
             this.label2.TabIndex = 15;
             this.label2.Text = "FULL NAME*";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,7 +99,7 @@ namespace Vistainn_Kiosk
             // 
             this.fullNameTextBox.AcceptsReturn = true;
             this.fullNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fullNameTextBox.BorderRadius = 10;
+            this.fullNameTextBox.BorderRadius = 15;
             this.fullNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fullNameTextBox.DefaultText = "";
             this.fullNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -107,20 +107,20 @@ namespace Vistainn_Kiosk
             this.fullNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.fullNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.fullNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.fullNameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.fullNameTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.fullNameTextBox.Location = new System.Drawing.Point(418, 173);
+            this.fullNameTextBox.Location = new System.Drawing.Point(505, 216);
             this.fullNameTextBox.Name = "fullNameTextBox";
             this.fullNameTextBox.PasswordChar = '\0';
             this.fullNameTextBox.PlaceholderText = "";
             this.fullNameTextBox.SelectedText = "";
-            this.fullNameTextBox.Size = new System.Drawing.Size(262, 26);
+            this.fullNameTextBox.Size = new System.Drawing.Size(326, 35);
             this.fullNameTextBox.TabIndex = 60;
             // 
             // phoneNoTextBox
             // 
             this.phoneNoTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.phoneNoTextBox.BorderRadius = 10;
+            this.phoneNoTextBox.BorderRadius = 15;
             this.phoneNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.phoneNoTextBox.DefaultText = "";
             this.phoneNoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -128,14 +128,14 @@ namespace Vistainn_Kiosk
             this.phoneNoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneNoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneNoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.phoneNoTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.phoneNoTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneNoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.phoneNoTextBox.Location = new System.Drawing.Point(418, 248);
+            this.phoneNoTextBox.Location = new System.Drawing.Point(505, 307);
             this.phoneNoTextBox.Name = "phoneNoTextBox";
             this.phoneNoTextBox.PasswordChar = '\0';
             this.phoneNoTextBox.PlaceholderText = "";
             this.phoneNoTextBox.SelectedText = "";
-            this.phoneNoTextBox.Size = new System.Drawing.Size(262, 26);
+            this.phoneNoTextBox.Size = new System.Drawing.Size(326, 35);
             this.phoneNoTextBox.TabIndex = 62;
             // 
             // label3
@@ -143,11 +143,11 @@ namespace Vistainn_Kiosk
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label3.Location = new System.Drawing.Point(415, 228);
+            this.label3.Location = new System.Drawing.Point(505, 282);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 17);
+            this.label3.Size = new System.Drawing.Size(165, 22);
             this.label3.TabIndex = 61;
             this.label3.Text = "PHONE NUMBER*";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,7 +155,7 @@ namespace Vistainn_Kiosk
             // emailTextBox
             // 
             this.emailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.emailTextBox.BorderRadius = 10;
+            this.emailTextBox.BorderRadius = 15;
             this.emailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.emailTextBox.DefaultText = "";
             this.emailTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -163,14 +163,14 @@ namespace Vistainn_Kiosk
             this.emailTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.emailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.emailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.emailTextBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.emailTextBox.Location = new System.Drawing.Point(418, 323);
+            this.emailTextBox.Location = new System.Drawing.Point(505, 398);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.PasswordChar = '\0';
             this.emailTextBox.PlaceholderText = "";
             this.emailTextBox.SelectedText = "";
-            this.emailTextBox.Size = new System.Drawing.Size(262, 26);
+            this.emailTextBox.Size = new System.Drawing.Size(326, 35);
             this.emailTextBox.TabIndex = 64;
             // 
             // label4
@@ -178,11 +178,11 @@ namespace Vistainn_Kiosk
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label4.Location = new System.Drawing.Point(418, 303);
+            this.label4.Location = new System.Drawing.Point(505, 373);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 17);
+            this.label4.Size = new System.Drawing.Size(75, 22);
             this.label4.TabIndex = 63;
             this.label4.Text = "EMAIL*";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,11 +192,11 @@ namespace Vistainn_Kiosk
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label5.Location = new System.Drawing.Point(418, 378);
+            this.label5.Location = new System.Drawing.Point(505, 464);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 17);
+            this.label5.Size = new System.Drawing.Size(108, 22);
             this.label5.TabIndex = 65;
             this.label5.Text = "CHECK-IN*";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,46 +205,46 @@ namespace Vistainn_Kiosk
             // 
             this.checkInDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkInDateTimePicker.BackColor = System.Drawing.Color.Transparent;
-            this.checkInDateTimePicker.BorderRadius = 10;
+            this.checkInDateTimePicker.BorderRadius = 15;
             this.checkInDateTimePicker.Checked = true;
-            this.checkInDateTimePicker.FillColor = System.Drawing.Color.DimGray;
-            this.checkInDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.checkInDateTimePicker.FillColor = System.Drawing.Color.White;
+            this.checkInDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.checkInDateTimePicker.Location = new System.Drawing.Point(418, 398);
+            this.checkInDateTimePicker.Location = new System.Drawing.Point(505, 489);
             this.checkInDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.checkInDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.checkInDateTimePicker.Name = "checkInDateTimePicker";
-            this.checkInDateTimePicker.Size = new System.Drawing.Size(262, 30);
+            this.checkInDateTimePicker.Size = new System.Drawing.Size(326, 35);
             this.checkInDateTimePicker.TabIndex = 110;
-            this.checkInDateTimePicker.Value = DateTime.Now;
+            this.checkInDateTimePicker.Value = new System.DateTime(2024, 12, 21, 10, 34, 58, 224);
             // 
             // checkOutDateTimePicker
             // 
             this.checkOutDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkOutDateTimePicker.BackColor = System.Drawing.Color.Transparent;
-            this.checkOutDateTimePicker.BorderRadius = 10;
+            this.checkOutDateTimePicker.BorderRadius = 15;
             this.checkOutDateTimePicker.Checked = true;
-            this.checkOutDateTimePicker.FillColor = System.Drawing.Color.DimGray;
-            this.checkOutDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.checkOutDateTimePicker.FillColor = System.Drawing.Color.White;
+            this.checkOutDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkOutDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.checkOutDateTimePicker.Location = new System.Drawing.Point(418, 477);
+            this.checkOutDateTimePicker.Location = new System.Drawing.Point(505, 580);
             this.checkOutDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.checkOutDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.checkOutDateTimePicker.Name = "checkOutDateTimePicker";
-            this.checkOutDateTimePicker.Size = new System.Drawing.Size(262, 30);
+            this.checkOutDateTimePicker.Size = new System.Drawing.Size(326, 35);
             this.checkOutDateTimePicker.TabIndex = 112;
-            this.checkOutDateTimePicker.Value = DateTime.Now.AddDays(1);
+            this.checkOutDateTimePicker.Value = new System.DateTime(2024, 12, 22, 10, 34, 58, 251);
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(54)))), ((int)(((byte)(49)))));
-            this.label6.Location = new System.Drawing.Point(418, 457);
+            this.label6.Location = new System.Drawing.Point(505, 555);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 17);
+            this.label6.Size = new System.Drawing.Size(126, 22);
             this.label6.TabIndex = 111;
             this.label6.Text = "CHECK-OUT*";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -254,19 +254,19 @@ namespace Vistainn_Kiosk
             this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.backButton.BackColor = System.Drawing.Color.Transparent;
             this.backButton.BorderColor = System.Drawing.Color.Transparent;
-            this.backButton.BorderRadius = 20;
+            this.backButton.BorderRadius = 25;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.backButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.backButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.backButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.backButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.backButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.backButton.Location = new System.Drawing.Point(62, 567);
+            this.backButton.Location = new System.Drawing.Point(57, 702);
             this.backButton.Name = "backButton";
             this.backButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(37)))), ((int)(((byte)(31)))));
-            this.backButton.Size = new System.Drawing.Size(143, 45);
+            this.backButton.Size = new System.Drawing.Size(200, 54);
             this.backButton.TabIndex = 113;
             this.backButton.Text = "BACK";
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -276,7 +276,7 @@ namespace Vistainn_Kiosk
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.ClientSize = new System.Drawing.Size(1098, 652);
+            this.ClientSize = new System.Drawing.Size(1337, 787);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.checkOutDateTimePicker);
             this.Controls.Add(this.label6);

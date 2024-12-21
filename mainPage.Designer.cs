@@ -38,7 +38,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1098, 652);
+            this.mainPanel.Size = new System.Drawing.Size(1337, 787);
             this.mainPanel.TabIndex = 18;
             // 
             // mainPage
@@ -46,7 +46,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(207)))), ((int)(((byte)(205)))));
-            this.ClientSize = new System.Drawing.Size(1098, 652);
+            this.ClientSize = new System.Drawing.Size(1337, 787);
             this.Controls.Add(this.mainPanel);
             this.Name = "mainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

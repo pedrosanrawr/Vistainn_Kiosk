@@ -15,7 +15,7 @@ namespace Vistainn_Kiosk
         public mainPage()
         {
             InitializeComponent();
-            loadForm(new SelectRoomForm(this));
+            loadForm(new startPage(this));
         }
 
         //loadForm
